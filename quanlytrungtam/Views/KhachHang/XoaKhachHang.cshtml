@@ -1,0 +1,52 @@
+﻿@model quanlytrungtam.Models.KHACHHANG
+
+@{
+    ViewBag.Title = "XoaKhachHang";
+    Layout = "~/Views/Layouts/AdminLayout.cshtml";
+}
+
+<div id="content" class="container-fluid">
+    <div class="card">
+        <div class="card-header font-weight-bold">
+            Xóa khách hàng
+        </div>
+
+        <div class="card-body">
+            @using (Html.BeginForm("XoaKhachHang", "KhachHang", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+            {
+                @Html.Hidden("MAKH", Model.MAKH)
+                @Html.AntiForgeryToken()
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="content">Họ Tên</label>
+                            @Html.DisplayFor(model => model.HOTEN, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Ngày Sinh</label>
+                            @Html.DisplayFor(model => model.NGAYSINH, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Địa Chỉ</label>
+                            @Html.DisplayFor(model => model.DIACHI, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="content">Số điện thoại</label>
+                            @Html.DisplayFor(model => model.SDT, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Địa chỉ Email</label>
+                            @Html.DisplayFor(model => model.Email, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-danger">Xác nhận xóa</button>
+            }
+            <a href="@Url.Action("QLKhachHang", "KhachHang")"><button class="btn btn-success">Quay Lại</button></a>
+        </div>
+    </div>
+</div>

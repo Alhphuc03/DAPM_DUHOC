@@ -1,0 +1,342 @@
+body{
+    margin: 0;
+    background-color:whitesmoke ;
+    box-sizing: border-box;
+}
+
+.banner {
+    background-image: url(/Content/images/BG.png);
+    padding: 43px 175px;
+    margin: 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.banner-title {
+    font-size: 45px;
+    color: #283077;
+    font-weight: bolder;
+    margin: 50px 0 20px 20px;
+}
+  
+  .banner-description {
+    font-size: 22px;
+    margin: 0 20px 20px;
+  }
+  
+  .banner-btn {
+    background-color: #283077;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 26px;
+    border-radius: 20px;
+    padding: 10px;
+    border: none;
+    margin: 10px 20px;
+  }
+  
+  .banner-btn:hover {
+    color: #CCFFFF;
+    opacity: 0.8;
+  }
+  
+  /* Responsive CSS */
+  @media screen and (max-width: 400px) {
+    .banner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .banner-title {
+      text-align: center;
+      margin: 20px;
+    }
+  
+    .banner-description {
+      width: 90%;
+      margin: 0 auto 20px;
+    }
+  
+    .banner-btn {
+      margin: 10px;
+    }
+  }
+
+div.row.review {
+    margin: 30px 0;
+  }
+  
+  div.row.review h1 {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+.review .row > .col:nth-child(1),
+.review .row > .col:nth-child(2),
+.review .row > .col:nth-child(3) {
+    background-color: aliceblue;
+    margin: 20px;
+    border-radius: 25px;
+    border: 0.25px solid #0000002b;
+}
+  
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 36px;
+  }
+  
+  .review-icon {
+    background-color: #1b2e5c;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    width: 70px;
+  }
+  
+  /* Responsive CSS */
+  @media screen and (max-width: 400px) {
+    .review .row > .col:nth-child(1),
+    .review .row > .col:nth-child(2),
+    .review .row > .col:nth-child(3) {
+      margin: 20px 10px;
+    }
+  }
+.content {
+    background-color: #edebebf9;
+  }
+  
+  .content h1 {
+    text-align: center;
+  }
+  
+  .content h3.review-title {
+    text-align: center;
+  }
+
+    .content .row > .col-sm {
+        background-color: aliceblue;
+        margin: 20px;
+        border-radius: 25px;
+        border: 0.25px solid #0000002b;
+    }
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 36px;
+    margin-left: auto;
+    margin-right: auto;
+}
+  
+  .review-icon {
+    background-color: #1b2e5c;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    width: 70px;
+  }
+  
+  @media screen and (max-width: 400px) {
+    .content .row > .col-sm {
+      margin: 20px 10px;
+    }
+  }
+  
+  .scholarship .title {
+    text-align: center;
+  }
+  
+  .scholarship .container {
+    margin-top: 30px;
+  }
+
+.scholarship .col {
+    background-color: #fafafc;
+    margin: 20px 10px 20px 50px;
+    border-radius: 10px;
+    /* box-shadow: 12px 20px 4px rgba(56, 55, 55, 0.2); */
+    box-shadow: 10px 10px 0 0 rgba(171, 184, 195, 0.3);
+    padding: 27px 10px;
+}
+  
+  @media screen and (max-width: 400px) {
+    /* Đảo chiều hiển thị icon và chữ */
+    .d-flex.mb-3 {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+
+  
+ .list {
+    background-color: #edededed;
+  }
+
+    .list .container {
+        margin-top: 30px;
+        padding: 36px 90px;
+    }
+  
+  .list .title {
+    text-align: center;
+  }
+  
+  .list .Des {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+  }
+  
+  .table .title-sub {
+    text-align: center;
+    color: white;
+  }
+  
+  .table .title {
+    background-color: #1b2e5c;
+    text-align: center;
+    font-size: 25px;
+  }
+  
+  .table td {
+    border: 0.01px rgb(150, 148, 148) solid;
+    font-size: 20px;
+  }
+  
+  .list .table thead tr.title th:first-child {
+    border-radius: 20px 0 0 0;
+  }
+  
+  .list .table thead tr.title th:last-child {
+    border-radius: 0 20px 0 0;
+  }
+  
+  /* CSS responsive cho màn hình 400px */
+  @media screen and (max-width: 420px) {
+    .list .container {
+      padding: 10px;
+    }
+  
+    .list .Des {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+  
+    .table .title {
+      font-size: 24px;
+    }
+  
+    .table td {
+      font-size: 16px;
+    }
+  
+    .list .table thead tr.title th {
+      padding: 10px;
+    }
+  
+    .list .table td {
+      padding: 5px;
+    }
+  }
+  
+
+  
+  
+
+  .image {
+    height: 400px;
+    margin-top: 30px;
+  }
+
+  .image .row{
+    display: flex;
+    justify-content: center;
+
+  }
+  .image .col {
+    max-width: 30%;
+    position: relative;
+
+  }
+
+.image .title{
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+  .image .col img {
+    width: 100%;
+    height: auto;
+  }
+
+  .image .imgae-icon{
+    background-color: #1b2e5c;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .image .icon{
+    background-color: #fdfdfd;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    width: 70px;
+
+    position: absolute;
+    top:100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+/* CSS responsive cho phần hình ảnh học tập */
+@media screen and (max-width: 400px) {
+    .image {
+      height: auto;
+      padding: 30px;
+    }
+  
+    .image .row {
+      flex-wrap: wrap;
+    }
+  
+    .image .col {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .image .imgae-icon {
+      height: 30px;
+      width: 30px;
+    }
+  
+    .image .icon {
+      height: 50px;
+      width: 50px;
+    }
+  }
+  

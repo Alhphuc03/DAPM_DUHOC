@@ -1,0 +1,436 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layouts/HomeLayout.cshtml";
+}
+<link rel="stylesheet" href="~/Content/css/home.css">
+
+@section Scripts{
+    <script>
+        setTimeout(function () {
+            $('#msgAlert').fadeOut('slow');
+        }, 2000);
+    </script>
+}
+@if (ViewBag.SuccessMsg != null)
+{
+    <div id="msgAlert" class="alert alert-success fixed-top" role="alert">
+        @ViewBag.SuccessMsg
+    </div>
+}
+<!-- Lấy từ đây -->
+<div class="scr_body">
+    <div class="container pt-5">
+        <div class="scr_body_1">
+            <img class="anhphai" src="~/Content/images/2.png" alt="">
+            <div class="anhtrai">
+                <h1 class="vietdinh">VIỆT ĐỈNH</h1>
+                <p class="tuvan">Tư vấn du học và định cư</p>
+            </div>
+            <div class="btn_dathen">
+                <a href="@Url.Action("datlichtuvan", "HomeClien")" class="dathen">Đặt hẹn tư vấn ngay!</a>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+<div class="block mt-5 text-center">
+    <a href="" class="bl1">
+
+        Tư vấn du học Úc
+    </a>
+    <a href="" class="bl2">Tư vấn du học Mỹ</a>
+    <a href="" class="bl3">Tư vấn du học Canada</a>
+    <a href="" class="bl4">Tư vấn du học Anh Quốc</a>
+    <a href="" class="bl5">Tư vấn du học New Zealand</a>
+    <a href="" class="bl6">Tư vấn du học các quốc gia khác </a>
+
+</div>
+<div class="main_1">
+    <div class="bo text-center">
+        <h2 class="duhoc">Du học cùng Việt Đỉnh</h2>
+        <p class="content">Chuẩn bị các bước trước khi du học là một chặng đường gian nan và Việt Định sẽ đồng hành cùng bạn xuyên suốt chặng đường đó và cả về sau.</p>
+
+    </div>
+    <div class="row review">
+
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <div class="p-2 icon">
+                        <div class="review-icon">
+                            <i class="fa-solid fa-arrow-down-a-z" style="color: #ffffff;"></i>
+                        </div>
+                    </div>
+                    <div class="p-2">
+                        <h3 class="review-title">Chọn ngành</h3>
+                        <p>
+                            Xác định ngành học là bước đầu tiên và quan trọng nhất thực hiện mục tiêu tương lai.
+                            <br>
+                            Việt Đỉnh sẽ giúp bạn chọn được ngành học phù hợp dựa trên sở thích, nhu cầu học tập, năng lực bản thân, điều kiện tài chính, thị trường lao động,…
+                        </p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-2 icon">
+                        <div class="review-icon">
+                            <i class="fa-solid fa-school" style="color: #ffffff;"></i>
+                        </div>
+                    </div>
+                    <div class="p-2">
+                        <h3 class="review-title">Chọn trường</h3>
+                        <p>
+                            Trường xếp hạng càng cao, chất lượng đào tạo càng tốt.
+                            <br>
+                            Tuy nhiên, bạn nên chọn trường phù hợp với bản thân mình: phù hợp ngành học, phù hợp khả năng học tập và tài chính,… để đảm bảo kết quả học tập thật tốt.
+                        </p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-2 icon">
+                        <div class="review-icon">
+                            <i class="fa-solid fa-newspaper" style="color: #ffffff;"></i>
+                        </div>
+                    </div>
+                    <div class="p-2">
+                        <h3 class="review-title">Hồ sơ và thủ tục</h3>
+                        <p>
+                            Chặng đường chuẩn bị trước du học, quá trình thủ tục, hồ sơ visa, nhập học, chứng minh tài chính, … được xem là khó nhất.
+                            <br>
+                            Trung tâm tư vấn du học Việt Đỉnh sẽ luôn sát cánh, hướng dẫn chi tiết để bạn có thể hoàn thành thành công thủ tục.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row review">
+
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <div class="p-2 icon">
+                        <div class="review-icon">
+                            <i class="fa-solid fa-earth-oceania" style="color: #ffffff;"></i>
+                        </div>
+                    </div>
+                    <div class="p-2">
+                        <h3 class="review-title">Đến chân trời mới</h3>
+                        <p>
+                            Vậy là cuối cùng bạn đã đặt chân tới chân trời mơ ước.
+                            <br>
+                            Đừng lo lắng nhé, trung tâm tư vấn du học Việt Đỉnh sẽ luôn sát cánh cùng bạn khi bạn gặp khó khăn trong việc hòa nhập, đau ốm hay nhớ nhà. Hãy nhớ rằng những trải nghiệm du học mới chỉ bắt đầu mà thôi…
+                        </p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-2 icon">
+                        <div class="review-icon">
+                            <i class="fa-solid fa-suitcase-rolling" style="color: #ffffff;"></i>
+                        </div>
+                    </div>
+                    <div class="p-2">
+                        <h3 class="review-title">Chuẩn bị lên đường</h3>
+                        <p>
+                            Từ chuẩn bị những kỹ năng sống, chỗ ở, khám sức khỏe, bảo hiểm du học, phúc lợi sinh viên, … cho đến việc đặt vé máy bay luôn là mối quan tâm lớn.
+                            <br>
+                            Việt Đỉnh sẽ hỗ trợ bạn “tất tần tật” dù là điều nhỏ bé hay to lớn đến đâu.
+                        </p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="p-2 icon">
+                        <div class="review-icon">
+                            <i class="fa-solid fa-coins" style="color: #ffffff;"></i>
+                        </div>
+                    </div>
+                    <div class="p-2">
+                        <h3 class="review-title">Kế hoạch tài chính</h3>
+                        <p> Đi du học đồng nghĩa với việc tốn rất nhiều chi phí. Vì thế, việc lập kế hoạch tài chính rõ ràng, khoa học sẽ giúp cho quá trình học tập của bạn suôn sẻ hơn và không có nguy cơ gián đoạn.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container_1 container">
+    <p class="cha">6 hỗ trợ đặc biệt khi chọn tư vấn du học tại Việt Đỉnh</p>
+    <div class="row">
+        <div class="review-icon1">
+            <i class="fa-brands fa-cc-visa" style="color: #ffffff; font-size: 30px;"></i>
+        </div>
+        <div class="col">
+
+            <h3>95% tỉ lệ visa thành công</h3>
+            <p>Hỗ trợ thủ tục, hồ sơ visa nhanh chóng, tỉ lệ thành công lên đến 95%.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="review-icon1">
+            <i class="fa-solid fa-link" style="color: #ffffff;"></i>
+        </div>
+        <div class="col">
+
+            <h3>Liên kết chặt chẽ</h3>
+            <p>Liên kết chặt chẽ với 500+ các trường Đại học, Cao đẳng, THPT, … ở các nước sở tại.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="review-icon1">
+            <i class="fa-solid fa-language" style="color: #ffffff;"></i>
+        </div>
+        <div class="col">
+
+            <h3>Hỗ trợ ngoại ngữ</h3>
+            <p>Hỗ trợ kiểm tra chất lượng và tư vấn lộ trình đào tạo ngoại ngữ để đạt yêu cầu hồ sơ du học.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="review-icon1">
+            <i class="fa-solid fa-layer-group" style="color: #ffffff;"></i>
+        </div>
+        <div class="col">
+
+            <h3>Học bổng cập nhật liên tục</h3>
+            <p>Luôn luôn, thường xuyên cập nhật các học bổng du học từ 30 - 100% nhanh chóng.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="review-icon1">
+            <i class="fa-solid fa-piggy-bank" style="color: #ffffff;"></i>
+        </div>
+        <div class="col">
+
+            <h3>Tiết kiệm 50% thời gian</h3>
+            <p>Tiết kiệm lên đến 1/2 thời gian về chọn trường; thủ tục Visa; xin học bổng, …</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="review-icon1">
+            <i class="fa-solid fa-globe" style="color: #ffffff;"></i>
+        </div>
+        <div class="col">
+
+            <h3>Đồng hành xuyên suốt</h3>
+            <p>Các chuyên gia tư vấn du học sẽ hỗ trợ bạn xuyên suốt trong quá trình chuẩn bị du học.</p>
+        </div>
+    </div>
+    <img class="anh12" src="~/Content/images/Web-Homepage-1.png" alt="">
+</div>
+<div class="phantram">
+
+    <div class="cot1">
+        <span>50%</span>
+        <p>Tiết kiệm thời gian <br> xin visa và các thủ tục</p>
+    </div>
+    <div class="cot2">
+        <span>95%</span>
+        <p>Tỉ lệ hồ sơ du học <br> thành công</p>
+    </div>
+    <div class="cot3">
+        <span>500+</span>
+        <p>Liên kết chặt chẽ <br> với các tổ chức giáo dục</p>
+    </div>
+    <div class="cot4">
+        <span>70%</span>
+        <p>Giá trị học bổng <br> dồi dào từ các trường</p>
+    </div>
+
+</div>
+<div class="register">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <div class="p-2">
+                    <h3 class="title" style="font-size: 35px; font-weight: bold;text-align: center;">Nhận tư vấn miễn phí</h3>
+                    <p style="text-align: center;margin-bottom: 1.5em;font-size: 19px;">Các tư vấn viên của <strong> Việt Đỉnh</strong> sẽ chủ động giới thiệu học <br> bổng phù hợp từ <strong>30 - 100%</strong>  học phí cho các bạn đến <br> làm hồ sơ tại <strong> Việt Đỉnh</strong></p>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Họ và tên" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder=" Số điện thoại" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="input-group mb-3">
+                        <select class="form-select" id="inputGroupSelect01">
+                            <option selected>Chọn địa điểm đến của bạn?</option>
+                            <option value="1">Úc</option>
+                            <option value="2">Mỹ</option>
+                            <option value="3">Anh</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <select class="form-select" id="inputGroupSelect01">
+                            <option selected>Thời gian bạn muốn Việt Đỉnh gọi cho bạn?</option>
+                            <option value="1">Buổi sáng</option>
+                            <option value="2">Buổi chiều</option>
+                            <option value="3">Buổi tối</option>
+                            <option value="4">Bất cứ lúc nào</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <select class="form-select" id="inputGroupSelect01">
+                            <option selected>Trung tâm bạn có thể đến tư vấn?</option>
+                            <option value="1">828 Sư Vạn Hạnh, Phường 13, Quận 10, TP.HCM</option>
+                            <option value="2">Quốc lộ 22, Xã Tân Xuân, Huyện Hóc Môn, TP.HCM</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" class="btn register">Đặt hẹn</button>
+            </div>
+            <div class="col">
+                <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="~/Content/images/slider-01.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="~/Content/images/slider-02.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="~/Content/images/slider-13.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="~/Content/images/slider-15.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="~/Content/images/slider-16.jpg" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <div class="carousel-duoi mr-5">
+                    <p class="logo1" style="font-size: 12px;margin-bottom: 1.5em;margin-left: -490px;">In cooperation with</p>
+                    <img class="anhlogo" style="margin-left: -250px;" src="~/Content/images/UNIA_Logo-1.png" alt="">
+                    <img src="~/Content/images/LOGO-Color-1000x1000-1.png" alt="" style="margin-left: 30px;" class="anhlogo1">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loikhuyen">
+    <h2>Lời khuyên và chia sẻ</h2>
+    <div class="anh3">
+        <div class="khoi1">
+            <div class="khoi1anh">
+                <a href=""><img style="height:auto;max-width: 100%;" src="~/Content/images/Cornell-University-1.jpg" alt=""></a>
+            </div>
+            <div class="khoi1chu">
+                <a href="">Cornell University - Top 10 trường đại học tốt nhất trên toàn cầu</a>
+            </div>
+        </div>
+        <div class="khoi2">
+            <div class="khoi2anh">
+                <a href=""><img style="height:auto;max-width: 100%;" src="~/Content/images/du-hoc-my-can-ielts-bao-nhieu-thumb.jpg" alt=""></a>
+            </div>
+            <div class="khoi2chu">
+                <a href="">Muốn đi du học Mỹ cần IELTS bao nhiêu?</a>
+            </div>
+        </div>
+        <div class="khoi3">
+            <div class="khoi3anh">
+                <a href=""><img style="height:auto;max-width: 100%;" src="~/Content/images/hoc-bong-thac-si-uc-thumb.jpg" alt=""></a>
+            </div>
+            <div class="khoi3chu">
+                <a href="">TOP 6 học bổng du học thạc sĩ Úc có hạn nộp 2023</a>
+            </div>
+        </div>
+    </div>
+    <div class="bt_xemthem">
+        <a href="" class="bt_bt"> >>Xem thêm các bài khác</a>
+    </div>
+</div>
+<div class="tintuc">
+    <h2>Tin tức - sự kiện</h2>
+    <div class="anh3">
+        <div class="khoi1">
+            <div class="khoi1anh">
+                <a href=""><img style="height:auto;max-width: 100%;" src="~/Content/images/tintuc1.jpg" alt=""></a>
+            </div>
+            <div class="khoi1chu">
+                <a href="">Bảng xếp hạng Complete University Guide 2023</a>
+            </div>
+        </div>
+        <div class="khoi2">
+            <div class="khoi2anh">
+                <a href=""><img style="height:auto;max-width: 100%;" src="~/Content/images/tintuc4.jpg" alt=""></a>
+            </div>
+            <div class="khoi2chu">
+                <a href="">Bảng xếp hạng Times Higher Education (THE) 2022</a>
+            </div>
+        </div>
+        <div class="khoi3">
+            <div class="khoi3anh">
+                <a href=""><img style="height:auto;max-width: 100%;" src="~/Content/images/tintuc3.jpg" alt=""></a>
+            </div>
+            <div class="khoi3chu">
+                <a href="">Các thành phố du học cởi mở với cộng đồng LGBT</a>
+            </div>
+        </div>
+    </div>
+    <div class="bt_xemthem">
+        <a href="" class="bt_bt"> >>Xem thêm các bài khác</a>
+    </div>
+</div>
+<div class="baochi">
+    <h2>
+        Báo chí và truyền thông
+        <br>nói gì về
+        <strong class="highlight">Việt Đỉnh</strong>
+        ?
+    </h2>
+    <div class="bao_2">
+        <div class="baotrai">
+            <div class="tieude">
+                <img src="~/Content/images/binhdinh.png" alt="">
+                <figcaption>Muốn đi du học cần IELTS bao nhiêu?</figcaption>
+            </div>
+            <p>Du học Châu Âu luôn là niềm mơ ước của rất nhiều bạn sinh viên Việt Nam muốn được học tập trong môi trường giáo dục hàng đầu thế giới. Nhưng không ít người trong số đó đã bị từ chối nguyện vọng chỉ vì không đủ điểm IELTS theo yêu cầu của quốc gia sở tại. IELTS là cụm từ viết tắt của International English Language Testing System...</p>
+            <div class="bt_xemthem1">
+                <a href="" class="bt_bt1"> >>Xem thêm</a>
+            </div>
+        </div>
+        <div class="baophai">
+            <div class="tieude">
+                <img src="~/Content/images/anninh.jpg" alt="">
+                <figcaption>Top 3 trung tâm tư vấn du học hàng <br> đầu Việt Nam</figcaption>
+            </div>
+            <p>Đứng đầu sanh sách các trung tâm tư vấn du học có chất lượng hàng đầu Việt Nam là các tên Việt Đỉnh rất quen thuộc với các bạn sinh viên. Nơi đây đã và đang nhận được sự tin yêu lớn của đông đảo người dùng vởi những lý do sau đây: Việt Đỉnh tư vấn du học chuyên nghiệp, trung thực. Không chỉ đề cao sự chuyên nghiệp...</p>
+            <div class="bt_xemthem1">
+                <a href="" class="bt_bt1"> >>Xem thêm</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+@if (ViewBag.SuccessMsg != null)
+{
+    @* <div id="msgAlert" class="alert alert-success fixed-top" role="alert">
+            @ViewBag.SuccessMsg
+        </div>*@
+    <script>
+
+    alert(@Html.Raw(ViewBag.SuccessMsg));
+    </script>
+
+}

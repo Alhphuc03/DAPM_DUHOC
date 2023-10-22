@@ -1,0 +1,134 @@
+.title{
+    display: block;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 30px;
+    padding: 70px 70px 0 70px ;
+    font-weight: 500;
+}
+.blog{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 70px 0 70px;
+}
+.tieude{
+    font-size: 27px;
+    font-weight: #000;
+    font-weight: 600;
+}
+.banner{
+    font-size: 20px;
+}
+.left{
+    width: 70%;
+}
+.left_cha{
+    display: flex;
+}
+.right {
+    width: 30%;
+    position: fixed;
+    top: 12%;
+    right: 1%;
+    z-index:-1;
+}
+.rightcha{
+    display: flex;
+}
+img{
+    width: 100%;
+}
+.oduoi{
+    display: flex;
+    width: 100%;
+    padding:20px 0px;
+    border-bottom: 1px solid #0000005c;
+}
+.img1{
+    width: 500px;
+}
+a.font1 {
+    font-size: 21px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #000000ba;
+}
+p.font2{
+    font-size: 25px;
+}
+.content1{
+    margin-left: 10px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    width:100%;
+}
+.img2{
+    width: 95%;
+}
+.img3{
+    width: 93%;
+}
+.img4{
+    width: 99%;
+}
+.img5{
+    width: 96%;
+}
+.container {
+    text-align: center; /* Canh giữa theo chiều ngang */
+    /*height: 100vh;*/ /* Đặt chiều cao của phần tử div */
+  }
+  .center-btn {
+    width: 70%;
+    background-color: #1e8fc3;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    line-height: 40px; /* Canh giữa theo chiều dọc */
+  }
+ .dvtuvan{
+    font-size: 16px;
+    font-weight: bold;
+ }
+ .logo{
+    width: 350px;
+    height: 100px;
+    margin-left: 30px;
+ }
+.logo img{
+    height: 280px;
+}
+.logoco .anh2 img{
+    width: 48px;
+    height: 48px;
+}
+a.a-right{
+    text-decoration: none !important;
+    color: #000 !important;
+}
+.left_1 {
+    padding-right: 20px;
+}
+p{
+    font-size: 20px !important;
+}
+.anh2 {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.logoco {
+    display: flex;
+    width: 100%;
+    padding: 5px;
+    border:1px solid #0000001f;
+}
+
+

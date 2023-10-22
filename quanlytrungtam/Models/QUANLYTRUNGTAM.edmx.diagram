@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f52a8289d5be449d9247858417a6caf8" Name="Diagram1">
+        <EntityTypeShape EntityType="QUANLYTRUNGTAMDUHOCModel.CHITIETHOADON" Width="1.5" PointX="7.5" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYTRUNGTAMDUHOCModel.CHUCVU" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYTRUNGTAMDUHOCModel.DANGKYLOTRINH" Width="1.5" PointX="5.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYTRUNGTAMDUHOCModel.HOADON" Width="1.5" PointX="5.25" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYTRUNGTAMDUHOCModel.HOCBONG" Width="1.5" PointX="3.75" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYTRUNGTAMDUHOCModel.HOSOKHACHHANG" Width="1.5" PointX="8.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYTRUNGTAMDUHOCModel.HOSOVISA" Width="1.5" PointX="10.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYTRUNGTAMDUHOCModel.KHACHHANG" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYTRUNGTAMDUHOCModel.LICHHENTUVAN" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYTRUNGTAMDUHOCModel.LOTRINHDUHOC" Width="1.5" PointX="6" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYTRUNGTAMDUHOCModel.NHANVIEN" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYTRUNGTAMDUHOCModel.NUOC" Width="1.5" PointX="1.5" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYTRUNGTAMDUHOCModel.QUYEN" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYTRUNGTAMDUHOCModel.TRUONGDAIHOC" Width="1.5" PointX="3.75" PointY="16.125" IsExpanded="true" />
+        <AssociationConnector Association="QUANLYTRUNGTAMDUHOCModel.FK_CHITIETHOADON_HOADON" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYTRUNGTAMDUHOCModel.FK_CHITIETHOADONG_LOTRINH" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYTRUNGTAMDUHOCModel.FK_NHANVIEN_CHUCVU" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYTRUNGTAMDUHOCModel.FK_DANGKYLOTRINH_KHACHHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYTRUNGTAMDUHOCModel.FK_DANGKYLOTRINH_LOTRINH" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYTRUNGTAMDUHOCModel.FK_HOADON_KHACHHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYTRUNGTAMDUHOCModel.FK_HOCBONG_NUOC" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYTRUNGTAMDUHOCModel.FK__HOSOVISA__MAHS__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYTRUNGTAMDUHOCModel.FK_HOSOKHACHHANG_KHACHHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYTRUNGTAMDUHOCModel.FK_HOSOKHACHHANG_LOTRINH" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYTRUNGTAMDUHOCModel.FK_HOSOKHACHHANG_NHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYTRUNGTAMDUHOCModel.FK_HOSOVISA_KHACHHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYTRUNGTAMDUHOCModel.FK_KHACHHANG_QUYEN" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYTRUNGTAMDUHOCModel.FK_LICHHENTUVAN_KHACHHANG" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYTRUNGTAMDUHOCModel.FK_LICHHENTUVAN_TUVANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYTRUNGTAMDUHOCModel.FK_LOTRINHDUHOC_TRUONGDAIHOC" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYTRUNGTAMDUHOCModel.FK_NHANVIEN_QUYEN" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYTRUNGTAMDUHOCModel.FK_TRUONGDAIHOC_NUOC" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

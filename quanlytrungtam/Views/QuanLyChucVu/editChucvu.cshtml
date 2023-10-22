@@ -1,0 +1,36 @@
+﻿@model quanlytrungtam.Models.CHUCVU
+
+@{
+    ViewBag.Title = "editChucvu";
+    Layout = "~/Views/Layouts/AdminLayout.cshtml";
+}
+
+<div id="content" class="container-fluid">
+    <div class="card">
+        <div class="card-header font-weight-bold">
+            Thêm Chức Vụ
+        </div>
+
+
+
+        <div class="card-body">
+            @using (Html.BeginForm("editChucvu", "QuanLyChucVu", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.Hidden("MACV", Model.MACV)
+                <div class="form-group">
+                    <label for="name">Chức Vụ</label>
+                    @*<input class="form-control" type="text" name="name" id="name">*@
+                    @Html.EditorFor(model => model.TENCV, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TENCV, "", new { @class = "text-danger" })
+                </div>
+
+                <button type="submit" class="btn btn-primary">Cập Nhật</button>
+
+            }
+            <a href="@Url.Action("Index", "QuanLyChucVu")"><button type="submit" class="btn btn-success">Quay Lại</button></a>
+        </div>
+    </div>
+</div>
+
+

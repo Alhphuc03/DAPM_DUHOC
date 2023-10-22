@@ -1,0 +1,97 @@
+﻿@model quanlytrungtam.Models.HOSOKHACHHANG
+@{
+    ViewBag.Title = "editHoso";
+    Layout = "~/Views/Layouts/AdminLayout.cshtml";
+}
+
+<div id="content" class="container-fluid">
+    <div class="card">
+        <div class="card-header font-weight-bold">
+            Chỉnh sửa thông tin hồ sơ Khách hàng
+        </div>
+
+
+
+        <div class="card-body">
+            @using (Html.BeginForm("editHoso", "QuanLyHoSoKH"))
+            {
+
+                @Html.AntiForgeryToken()
+                @Html.Hidden("MAHS", Model.MAHS)
+               
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="content">Mã Hồ sơ</label>
+                            <input class="form-control" type="text" disabled name="MAHS" value=" @Model.MAHS">
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Thời gian tạo Hồ sơ</label>
+                            <input class="form-control" type="text" disabled name="NGAYTAOHS" value=" @Model.NGAYTAOHS.Value.ToString("dd/mm/yyyy")">
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Mã Lộ Trình</label>
+                            <input class="form-control" type="text" name="MALT" value="  @Model.MALT">
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="content">Tên Lộ Trình du HỌC</label>
+                            <input class="form-control" type="text" value="@Model.LOTRINHDUHOC.TENLT">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Thời Gian Học</label>
+                            <input class="form-control" type="text" value="  @Model.LOTRINHDUHOC.THOIGIANHOC năm">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Học Phí</label>
+                            <input class="form-control" type="text" value=" @Model.LOTRINHDUHOC.CHIPHI.Value.ToString("#,##") đ">
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="content">Họ Tên Khách Hàng</label>
+                            @*<input class="form-control" type="number" name="name" max="40" id="name">*@
+                            <input class="form-control" type="text" value="@Model.KHACHHANG.HOTEN">
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Ngày Sinh</label>
+                            <input class="form-control" type="text" value="@Model.KHACHHANG.NGAYSINH">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="content">Giới tính</label>
+                            <input class="form-control" type="text" value="@Model.KHACHHANG.GIOITINH">
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Địa Chỉ</label>
+                            <input class="form-control" type="text" value="@Model.KHACHHANG.DIACHI">
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Số điện thoại</label>
+                            <input class="form-control" type="text" value="@Model.KHACHHANG.SDT">
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Email</label>
+                            <input class="form-control" type="text" name="Email" value="@Model.KHACHHANG.Email">
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+                <button type="submit" class="btn btn-primary">Cập Nhật</button>
+            }
+
+
+        </div>
+    </div>
+</div>

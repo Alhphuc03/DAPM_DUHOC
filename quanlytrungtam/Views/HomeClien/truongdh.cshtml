@@ -1,0 +1,91 @@
+﻿@model IEnumerable<quanlytrungtam.Models.TRUONGDAIHOC>
+
+@{
+    ViewBag.Title = "truongdh";
+    Layout = "~/Views/Layouts/HomeLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/css/blog1.css">
+
+<link rel="stylesheet" href="~/Content/css/blog1.css">
+
+<section class="pt-5">
+    <div class="blog pt-5">
+        <div class="left">
+            <h1 class="ten">Danh sách tất cả các trường học </h1>
+            <p class="noidung">
+                Có rất nhiều các lựa chọn du học, vậy bạn nên bắt đầu từ đâu? Hãy nói cho chúng tôi biết bạn muốn du học ở đâu và bắt đầu tìm kiếm theo các trường học phổ biến, nhận xét của sinh viên hay cơ hội học bổng. Đơn giản đúng không!
+            </p>
+            <div class="mid">
+                @foreach (var item in Model)
+                {
+                    <div class="oduoi">
+                        <div class="img1">
+                            <img height="200" src="@Url.Content("~/Content/images/"+item.ANH)" alt="Danh sách học bổng du học Mỹ">
+                        </div>
+                        <div class="content1">
+                            <a href="@Url.Action("deltailDH", "HomeClien", new { id = item.MATDH })" class="font1" chref="">@item.TENTDH</a>
+                            <p class="font2">@item.MOTANGAN</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="right">
+            <div class="rightcha">
+                <div class="logo">
+                    <P class="dvtuvan">CÁC DỊCH VỤ TƯ VẤN TẠI LUAGACADEMY</P>
+                    <img src="~/Content/images/vietdinh-720-400.jpg" alt="LOGO">
+                    <div class="logoco">
+                        <div class="anh2">
+                            <img src="https://vietdinh.vn/wp-content/uploads/2021/03/uc.png" alt="">
+                        </div>
+                        <div class="content-right">
+                            <div>Tư vấn du học Úc</div>
+                            <a class="a-right" href="">Chinh phục "thiên đường du học"</a>
+                        </div>
+                    </div>
+                    <div class="logoco">
+                        <div class="anh2">
+                            <img src="https://vietdinh.vn/wp-content/uploads/2021/03/canada.png
+                                 " alt="">
+                        </div>
+                        <div class="content-right">
+                            <div>Tư vấn du học Canada</div>
+                            <a class="a-right" href="">Quốc gia lý tưởng để học tập, làm việc và định cư</a>
+                        </div>
+                    </div>
+                    <div class="logoco">
+                        <div class="anh2">
+                            <img src="https://vietdinh.vn/wp-content/uploads/2021/03/my.png" alt="">
+                        </div>
+                        <div class="content-right">
+                            <div>Tư vấn du học Mỹ</div>
+                            <a class="a-right" href="">Chinh phục ước mơ du học Mỹ</a>
+                        </div>
+                    </div>
+                    <div class="logoco">
+                        <div class="anh2">
+                            <img src="https://vietdinh.vn/wp-content/uploads/2021/03/anh.png" alt="">
+                        </div>
+                        <div class="content-right">
+                            <div>Tư vấn du học Anh</div>
+                            <a class="a-right" href="">Khám phá "cái nôi" tiếng anh của thế giới</a>
+                        </div>
+                    </div>
+                    @*<div class="logoco">
+                            <div class="anh2">
+                                <img src="https://vietdinh.vn/wp-content/uploads/2021/03/new-zealand.png" alt="">
+                            </div>
+                            <div class="content-right">
+                                <div>Tư vấn du học New Zealand</div>
+                                <a class="a-right" href="">Điểm đến du học được yêu thích nhất trên thế giới</a>
+                            </div>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>

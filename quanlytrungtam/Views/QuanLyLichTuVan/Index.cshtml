@@ -1,0 +1,254 @@
+﻿@model IEnumerable<quanlytrungtam.Models.LICHHENTUVAN>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layouts/AdminLayout.cshtml";
+}
+@{ var db = new quanlytrungtam.Models.QUANLYTRUNGTAMDUHOCEntities();
+    var datv = db.LICHHENTUVANs.Where(n => n.MANV != null).Count();
+    var chuatv = db.LICHHENTUVANs.Where(n => n.MANV == null).Count();
+}
+
+@section Scripts{
+    <script>
+        setTimeout(function () {
+            $('#msgAlert').fadeOut('slow');
+        }, 2000);
+    </script>
+}
+<style>
+    .edit-status {
+        text-align: center;
+    }
+
+        .edit-status form {
+            display: inline-block;
+        }
+
+        .edit-status select {
+            padding: 5px;
+            border-radius: 15px;
+        }
+
+        .edit-status button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 15px;
+        }
+
+        .edit-status button:hover {
+            background-color: greenyellow;
+        }
+</style>
+<div id="content" class="container-fluid">
+    <div class="card">
+        <div class="card-header font-weight-bold d-flex justify-content-between align-items-center">
+            <h5 class="m-0 ">Lịch Hẹn tư vấn</h5>
+            <div class="form-search form-inline">
+                <form id="box" action="#">
+                    <input type="text" id="Search" class="form-control form-search" placeholder="Tìm kiếm">
+                    <input type="submit" name="btn-search" value="Tìm kiếm" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="analytic">
+                <a href="@Url.Action("duyetlich","QuanLyLichTuVan",new { @MANV=0})" class="text-primary">chưa tư vấn<span class="text-muted">(@chuatv)</span></a>
+                <a href="@Url.Action("duyetlich","QuanLyLichTuVan",new { @MANV=1})" class="text-primary">đã tư vấn<span class="text-muted">(@datv)</span></a>
+            </div>
+            <div class="form-action form-inline py-3">
+                <select class="form-control mr-1" id="">
+                    <option>Chọn</option>
+                    <option>Tác vụ 1</option>
+                    <option>Tác vụ 2</option>
+                </select>
+                <input type="submit" name="btn-search" value="Áp dụng" class="btn btn-primary">
+            </div>
+
+            @if (ViewBag.SuccessMsg != null)
+            {
+                <div id="msgAlert" class="alert alert-success" role="alert">
+                    @ViewBag.SuccessMsg
+                </div>
+            }
+
+            <table class="table table-striped table-checkall text-center">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <input name="checkall" type="checkbox">
+                        </th>
+                        <th scope="col">#</th>
+                        <th scope="col">Họ Tên</th>
+                        <th scope="col">số điện thoại</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Buổi hẹn</th>
+                        <th scope="col">Nhân viên tư vấn</th>
+                        <th scope="col">Trạng thái</th>
+                        <th scope="col">Tác vụ</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @{var stt = 0;}
+                    @foreach (var item in Model)
+                    {
+                        stt++;
+                        <tr class="Search">
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>@item.MALH</td>
+                            <td>@item.HOTEN</td>
+                            <td>@item.SDT</td>
+                            <td>@item.Email</td>
+                            <td>@item.BUOIHEN</td>
+                            <td>
+                                @{
+                                    var nvtv = (from nv in db.NHANVIENs
+                                                join cv in db.CHUCVUs on nv.MACV equals cv.MACV
+                                                where nv.MANV == item.MANV
+                                                select new { nv.HOTEN, cv.TENCV }).ToList();
+                                    foreach (var nv in nvtv)
+                                    {
+                                        @nv.HOTEN <p style="background: #28a745; color: #fff; padding: 3px; border-radius: 33px; font-size: 12px;">@nv.TENCV</p>
+                                    }
+                                }
+                            </td>
+                            <td class="edit-status">
+                                <form>
+                                    <input type="hidden" name="MALH" value="@item.MALH" />
+                                    <select name="TrangThai" data-malh="@item.MALH">
+                                        <option value="Chưa liên hệ" @(item.TRANGTHAI == "Chưa liên hệ" ? "selected" : "")>Chưa liên hệ</option>
+                                        <option value="Đã liên hệ" @(item.TRANGTHAI == "Đã liên hệ" ? "selected" : "")>Đã liên hệ</option>
+                                        <option value="Đã cấp" @(item.TRANGTHAI == "Đã cấp" ? "selected" : "")>Đã cấp</option>
+
+                                    </select>
+                                </form>
+                                <input type="button" class="btn btn-primary" data-hoten="@item.HOTEN" data-email="@item.Email" value="Cấp">
+                            </td>
+                            <td>
+                                <a href="@Url.Action("xeplich", "QuanLyLichTuVan",new {id=item.MALH })"> <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button></a>
+                                <a href="@Url.Action("xoalich", "QuanLyLichTuVan",new {id=item.MALH })"><button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button></a>
+                                @* <a href="@Url.Action("dshslop", "QuanLyChucVu",new {id=item.MACV })"><button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="list"><i class="fa-sharp fa-light fa-users"></i></button></a>*@
+
+                            </td>
+
+                        </tr>
+                        stt++;
+
+                    }
+                </tbody>
+            </table>
+            <div class="card-footer">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+
+                        @{
+                            int position;
+                            int pageCurrent = ViewBag.pageCurrent;
+                            string txtSearch = ViewBag.txtSearch;
+                            float numSize = ViewBag.numSize;
+                            if (pageCurrent > 1)
+                            {
+                                <li class="page-item">
+                                    <a class="page-link" href="@Url.Action("Index", "QuanLyLichTuVan", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = pageCurrent-1 })" tabindex="-1">Previous</a>
+                                </li>
+                            }
+
+                            for (position = 1; position <= numSize; position++)
+                            {
+
+                                if (position == pageCurrent)
+                                {
+                                    <li class="page-item active"><a class="page-link" href="@Url.Action("Index", "QuanLyLichTuVan", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = position })">@position</a></li>
+                                }
+
+                                else
+                                {
+                                    <li class="page-item"><a class="page-link" href="@Url.Action("Index", "QuanLyLichTuVan", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = position })">@position</a></li>
+                                }
+
+                            }
+                            if (pageCurrent > 0 && pageCurrent < numSize)
+                            {
+                                <li class="page-item">
+                                    <a class="page-link" href="@Url.Action("Index", "QuanLyLichTuVan", new { txtSearch = (txtSearch != "" ? txtSearch : null), page = pageCurrent+1 })" tabindex="-1">Next</a>
+                                </li>
+                            }
+
+                        }
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(document).ready(function () {
+        function Contains(text_one, text_two) {
+            if (text_one.indexOf(text_two) != -1)
+                return true;
+        }
+        $("#Search").keyup(function () {
+            var searchText = $("#Search").val().toLowerCase();
+            $(".Search").each(function () {
+                if (!Contains($(this).text().toLowerCase(), searchText)) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+            })
+        })
+    })
+</script>
+
+
+
+<script>
+    $(document).ready(function () {
+        $('select[name="TrangThai"]').on('change', function () {
+            var malh = $(this).data('malh'); // Lấy giá trị MALH từ thuộc tính data
+
+            // Lấy giá trị TrangThai từ dropdown
+            var trangThai = $(this).val();
+
+            $.ajax({
+                url: '/QuanLyLichTuVan/ChinhSuaTrangThai',
+                type: 'POST',
+                data: { MALH: malh, TrangThai: trangThai },
+                success: function (data) {
+                },
+                error: function () {
+                }
+            });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        // Xử lý sự kiện khi nút "Cấp" được bấm
+        $('#btn').click(function () {
+            // Chuyển đến trang "CapTaiKhoan"
+            window.location.href = '@Url.Action("CapTaiKhoan", "KhachHang")';
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        // Xử lý sự kiện khi nút "Cấp" được bấm
+        $('.btn-primary').click(function () {
+            var hoten = $(this).data('hoten');
+            var email = $(this).data('email');
+
+            // Chuyển đến trang "CapTaiKhoan" và truyền tham số HOTEN và EMAIL
+            window.location.href = '@Url.Action("CapTaiKhoan", "KhachHang")' + '?hoTen=' + hoten + '&email=' + email;
+        });
+    });
+</script>

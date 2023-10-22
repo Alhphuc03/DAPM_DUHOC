@@ -1,0 +1,203 @@
+﻿@using quanlytrungtam.Models
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="~/Content/css/truonghoc.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    @*    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">*@
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</head>
+<body>
+    <div class="header fixed-top">
+        <div class="container1 px-3">
+            <nav class="navbar navbar-expand-lg py-0 mt-0">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="javascript:void(0)">
+                        <img style="width: auto;height: 60px;" src="~/Content/images/cropped-VietDinh-Logo-1.png" alt="">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-center" id="mynavbar">
+                        <ul class="navbar-nav me-auto1 align-items-center">
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Index", "HomeClien")">Về Việt Đỉnh</a>
+                            </li>
+
+                            <li class="nav-item px-4">
+
+                                <div class="dropdown">
+                                    @* <button class="dropbtn">Dropdown</button>*@
+                                    <a class="nav-link dropbtn" href="@Url.Action("hocbong", "HomeClien")">Học Bổng <i class="arrow fas fa-angle-down"></i></a>
+
+                                    <div class="dropdown-content">
+                                        <a href="@Url.Action("hocbong", "HomeClien",new { @MANUOC=1})">Học bổng du học Mỹ</a>
+                                        <a href="@Url.Action("hocbong", "HomeClien",new { @MANUOC=5})">Học bổng du học Anh</a>
+                                        <a href="@Url.Action("hocbong", "HomeClien",new { @MANUOC=2})">Học bổng du học Canada</a>
+                                        <a href="@Url.Action("hocbong", "HomeClien",new { @MANUOC=4})">Trường du học NEW ZEALAND</a>
+                                        <a href="@Url.Action("hocbong", "HomeClien",new { @MANUOC=3})">Học bổng du học Úc</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item px-4">
+                                <div class="dropdown">
+                                    @* <button class="dropbtn">Dropdown</button>*@
+                                    <a class="nav-link dropbtn" href="@Url.Action("truongdh", "HomeClien")">Trường Học <i class="arrow fas fa-angle-down"></i></a>
+                                    <div class="dropdown-content">
+                                        <a href="@Url.Action("truongdh","HomeClien",new { @MANUOC=1})">Trường du học Mỹ</a>
+                                        <a href="@Url.Action("truongdh","HomeClien",new { @MANUOC=5})">Trường du học Anh</a>
+                                        <a href="@Url.Action("truongdh","HomeClien",new { @MANUOC=2})">Trường du học Canada</a>
+                                        <a href="@Url.Action("truongdh","HomeClien",new { @MANUOC=4})">Trường du học NEW ZEALAND</a>
+                                        <a href="@Url.Action("truongdh","HomeClien",new { @MANUOC=3})">Trường du học Úc</a>
+
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item px-4">
+                                <a class="nav-link" href="@Url.Action("datlichtuvan", "HomeClien")">Tư Vấn</a>
+                            </li>
+
+                            <li>
+                                <a class="nav-link dathen" href="@Url.Action("datlichtuvan", "HomeClien")"><button class="btn btn-primary btn-dathen" type="button">Đặt hẹn</button></a>
+                            </li>
+
+                            @if (Session["KHACHHANG"] != null)
+                            {
+                                var khachhang = (KHACHHANG)Session["KHACHHANG"];
+                                <li>
+                                    <a class="nav-link dathen" href="@Url.Action("nophoso", "HomeClien")"><button class="btn btn-primary btn-dathen" type="button">Nộp Hồ sơ Online</button></a>
+                                </li>
+                                <li>
+                                    <div class="dropdown">
+                                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                                            @khachhang.HOTEN
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="@Url.Action("tinhtranghskh", "HomeClien", new { id = khachhang.MAKH })">Xem tình trạng hồ sơ</a>
+                                            <a href="@Url.Action("dangxuat", "HomeClien")" class="dropdown-item">Thoát</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <button class="btn btn-primary btn-dathen click_nhap" type="button">Đăng Nhập</button>
+                                </li>
+                            }
+
+                            <div id="login">
+                                @using (Html.BeginForm("dangnhap", "HomeClien"))
+                                {
+
+                                    <div class="box_login">
+                                        <div class="close_login">
+                                            <div class="icon_closelogin"><i class="fa-solid fa-xmark"></i></div>
+                                        </div>
+                                        <h2 class="name_login">Đăng nhập</h2>
+                                        <div class="input">
+                                            <input style="width:100%" type="text" name="TAIKHOAN" placeholder="Tên Đăng Nhập"><br>
+                                            <input style="width:100%" type="password" name="MATKHAU" placeholder="Mật Khẩu">
+                                        </div>
+                                        <div class="quen">Quên Mật Khẩu ?</div>
+                                        <div class="row nhap">
+                                            <div class="col-sm-6">
+                                                <button class="btn dangnhap">Đăng Nhập</button>
+                                            </div>
+                                            @*<div class="col-sm-6">
+                                                @Html.ActionLink("Đăng Ký", "dangky", "null", new { @class = "btn dangky" })
+
+                                            </div>*@
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+    </div>
+
+    <div class="main">
+        @RenderBody()
+    </div>
+    <div class="footer">
+        <div class="container py-4 px-5">
+            <div class="footer-top">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="title-footer" style="width: 270px;" class="anh">
+                            <img style="width: 100%;" src="~/Content/images/VietDinh-Logo-5.png" alt="">
+                        </div>
+                        <div class="icon">
+                            <div style="width: 45px;" class="px-2"><img width="100%" src="~/Content/images/facebook-125x125.png" alt=""></div>
+                            <div style="width: 45px;" class="px-2"><img width="100%" src="~/Content/images/tik-tok-125x125.png" alt=""></div>
+                            <div style="width: 45px;" class="px-2 "><img width="100%" src="~/Content/images/instagram-125x125.png" alt=""></div>
+                            <div style="width: 45px;" class="px-2 "><img width="100%" src="~/Content/images/gmail-2-125x125.png" alt=""></div>
+                        </div>
+                        <div class="lienhe mx-5 my-3">
+                            Hotline: 093 832 60 65
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <h4 class="title-footer">Tư vấn</h4>
+                        <div class="div-footer"><a href="">Tư vấn du học úc</a></div>
+                        <div class="div-footer"><a href="">Tư vấn du học Mỹ</a></div>
+                        <div class="div-footer"><a href="">Tư vấn du học Canada</a></div>
+                        <div class="div-footer"><a href="">Tư vấn du học New Zealand</a></div>
+                        <div class="div-footer"><a href="">Tư vấn du học Anh</a></div>
+
+                    </div>
+                    <div class="col-lg-3">
+                        <h4 class="title-footer">Về Việt Đỉnh</h4>
+                        <div class="div-footer"><a href="">Về Việt Đỉnh</a></div>
+                        <div class="div-footer"><a href="">Chính Sách Bảo Mật</a></div>
+                        <div class="div-footer"><a href="">Liên hệ</a></div>
+                    </div>
+                    <div class="col-lg-3">
+                        <h4 class="title-footer">Cơ sở của Việt Đỉnh</h4>
+                        <div class="div-footer"> <a href="">72 đường số 1, khu CityLand Park Hills, P10, Quận Gò Vấp.</a></div>
+                        <div class="div-footer"><a href="">68 - 70 Hoa Cúc, P7, Phú Nhuận</a></div>
+                        <div class="div-footer"><a href="">664 Lê Quang Định, P1, Gò Vấp.</a></div>
+                        <div class="div-footer"><a href="">769 Lê Hồng Phong, P12, Quận 10.</a></div>
+                        <div class="div-footer"><a href="">53 Gò Dầu, P. Tân Quý, Quận Tân Phú.</a></div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="footer-copyright">
+            <div class="copyright">
+                © 2023 Nhóm 21
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="~/Content/js/app.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="~/Content/js/togge.js"></script>
+    <script src="jquery-3.6.4.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

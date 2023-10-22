@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter, sans-serif;
+}
+
+.header {
+    width: 100%;
+    height: 71px;
+    border-bottom: 1px solid #00000042;
+    background: #fff;
+}
+
+.main {
+    width: 100%;
+    min-height: 600px;
+    /* padding: 0px 20px;*/
+    /*overflow:hidden;*/
+}
+
+a.nav-link {
+    font-family: Inter, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: #2e416b;
+}
+
+.ten {
+    font-family: Inter, sans-serif;
+    font-weight: bold;
+    font-size: 45px;
+}
+
+.tieude a {
+    text-decoration: none;
+    color: #000;
+    font-family: Inter, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.diachi {
+    margin-top: 5px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px !important;
+    color: #1b2e5c;
+}
+
+.box-con {
+    border-bottom: 1px solid #00000042;
+    padding: 27px 0px;
+}
+
+p {
+    font-family: Inter, sans-serif;
+    font-size: 19px;
+    color: #000000b0;
+}
+
+.footer {
+    width: 100%;
+    background: #323232 !important;
+    color: #fff;
+}
+
+.div-footer a {
+    font-family: Inter, sans-serif;
+    text-decoration: none !important;
+    color: #ffffffb4;
+}
+
+.title-footer {
+    padding-bottom: 20px;
+}
+
+.footer-copyright {
+    background: #222222;
+    padding: 20px;
+}
+
+.copyright {
+    text-align: center;
+    color: #ffffff97;
+}
+
+.icon {
+    display: flex;
+    margin-left: 41px;
+}
+
+div#carouselExample {
+    width: 84%;
+    margin-left: 68px;
+}
+
+.carousel-duoi {
+    margin-left: 94px;
+}
+
+button.btn.btn-primary.btn-dathen {
+    background-image: linear-gradient(to right, #244d86, #69d1e9) !important;
+    padding: 10px 22px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+.dropbtn {
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #fff;
+}
+
+/*login*/
+#login {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2222222;
+    background-color: #130f15ad;
+    /* display: none; */
+    transition: 0.8s;
+    transform: scale(0);
+}
+
+.box_login {
+    width: 400px;
+    height: 340px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #d66efd;
+    padding: 30px;
+    border-radius: 10px;
+    background: #6fa1c4;
+}
+
+.close_login {
+    position: absolute;
+    top: 5%;
+    left: 82%;
+    text-align: center;
+}
+
+.icon_closelogin i.fa-xmark {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #3420eb, #cd5ff5);
+    color: #fff;
+    font-size: 25px;
+    line-height: 51px;
+    box-shadow: 0px 0px 18px 0px #bc30e4;
+}
+
+.icon_closelogin:hover i.fa-xmark {
+    color: rgb(255, 0, 0,.5);
+    background: linear-gradient(-45deg, #3420eb, #cd5ff5);
+}
+
+.box_login .dangnhap {
+    width: 100%;
+    background: #bc30e4;
+    margin-bottom: 10px;
+}
+
+.box_login .dangnhap:hover {
+    width: 100%;
+    background: #bc30e4;
+    margin-bottom: 10px;
+}
+
+.box_login .dangky {
+    width: 150px;
+    background: #23a765;
+    padding: 6px;
+}
+
+    .box_login .dangky:hover {
+        width: 150px;
+        background: #23a765;
+        padding: 6px;
+    }
+
+}
+
+.input {
+    text-align: center;
+}
+
+input[type="text"], input[type="password"] {
+    width: 80%;
+    height: 40px;
+    padding: 10px 20px;
+    /* border: none;
+    outline: none;*/
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.box_login .quen {
+    text-align: end;
+    padding: 12px 30px;
+}
+
+.row.nhap {
+    padding: 0px 20px;
+    justify-content: space-evenly;
+}
+
+h2.name_login {
+    color: #fff;
+    font-weight: 800;
+}

@@ -1,0 +1,75 @@
+﻿@model quanlytrungtam.Models.LICHHENTUVAN
+
+@{
+    ViewBag.Title = "xoalich";
+    Layout = "~/Views/Layouts/AdminLayout.cshtml";
+}
+
+<div id="content" class="container-fluid">
+    <div class="card">
+        <div class="card-header font-weight-bold">
+            Xóa lịch hẹn tư vấn
+        </div>
+
+
+
+        <div class="card-body">
+            @using (Html.BeginForm("xoalich", "QuanLyLichTuVan", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.Hidden("MALH", Model.MALH)
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="content">Họ Tên</label>
+                            @*<input class="form-control" type="number" name="name" max="40" id="name">*@
+                            @Html.EditorFor(model => model.HOTEN, new { htmlAttributes = new { @class = "form-control", @max = 40 } })
+                            @Html.ValidationMessageFor(model => model.HOTEN, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Thời gian nhân viên tư vấn có thể gọi</label>
+                            @*<input class="form-control" type="number" name="name" max="40" id="name">*@
+                            @Html.EditorFor(model => model.BUOIHEN, new { htmlAttributes = new { @class = "form-control", @max = 40 } })
+                            @Html.ValidationMessageFor(model => model.BUOIHEN, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="content">Nộ dung tư vấn</label>
+                            @*<input class="form-control" type="number" name="name" max="40" id="name">*@
+                            @Html.TextAreaFor(model => model.GHICHU, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.GHICHU, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="content">Số điện thoại</label>
+                            @*<input class="form-control" type="number" name="name" max="40" id="name">*@
+                            @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control", @max = 40 } })
+                            @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Địa chỉ Email</label>
+                            @*<input class="form-control" type="number" name="name" max="40" id="name">*@
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @max = 40 } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Nhân viên tư vấn</label>
+
+                            @Html.DropDownList("MANV", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.MANV, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <button type="submit" class="btn btn-danger">Xác nhận xóa</button>
+            }
+        </div>
+    </div>
+</div>
+
+
+

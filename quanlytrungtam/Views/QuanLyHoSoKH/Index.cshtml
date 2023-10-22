@@ -1,0 +1,164 @@
+﻿@model IEnumerable<quanlytrungtam.Models.HOSOKHACHHANG>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layouts/AdminLayout.cshtml";
+}
+@{
+    var db = new quanlytrungtam.Models.QUANLYTRUNGTAMDUHOCEntities();
+
+}
+@section Scripts{
+    <script>
+        setTimeout(function () {
+            $('#msgAlert').fadeOut('slow');
+        }, 2000);
+    </script>
+}
+<div id="content" class="container-fluid">
+    <div class="card">
+        <div class="card-header font-weight-bold d-flex justify-content-between align-items-center">
+            <h5 class="m-0 ">Danh sách hồ sơ khách hàng</h5>
+            <div class="form-search form-inline">
+                <form id="box" action="#">
+                    <input type="text" id="Search" class="form-control form-search" placeholder="Tìm kiếm">
+                    <input type="submit" name="btn-search" value="Tìm kiếm" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+        <div class="card-body">
+
+            <div class="row justify-content-between align-items-center">
+                <div class="col-sm-6">
+                    <div class="form-action form-inline py-3">
+                        <select class="form-control mr-1" id="">
+                            <option>Chọn</option>
+                            <option>Tác vụ 1</option>
+                            <option>Tác vụ 2</option>
+                        </select>
+                        <input type="submit" name="btn-search" value="Áp dụng" class="btn btn-primary">
+                    </div>
+                </div>
+                <div style="text-align:end" class="col-sm-6 ">
+                    <a href="@Url.Action("Create", "QuanLyHoSoKH")"><button type="submit" class="btn btn-success"><i style="color:#fff" class="plus-icon fas fa-plus-circle"></i> Thêm mới</button></a>
+
+                </div>
+            </div>
+            <p>Có @Model.Count() trong danh sách nhân viên</p>
+            @if (ViewBag.SuccessMsg != null)
+            {
+                <div id="msgAlert" class="alert alert-success" role="alert">
+                    @ViewBag.SuccessMsg
+                </div>
+            }
+            <table class="table table-striped table-checkall text-center">
+                <thead>
+                    <tr>
+                        <th scope="col">Mã hồ sơ</th>
+                        <th scope="col">Khách hàng</th>
+                        <th scope="col">Chương trình </th>
+                        <th scope="col">Ngày tạo</th>
+                        <th scope="col">Trạng Thái</th>
+                        <th scope="col">Duyệt Hồ sơ </th>
+
+                        <th scope="col">Tác vụ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ var stt = 0;
+                    }
+                    @foreach (var item in Model)
+                    {
+                        stt++;
+                        <tr class="Search">
+
+                            <td>@item.MAHS</td>
+                            <td>
+                                @{
+                                    var kh = db.KHACHHANGs.FirstOrDefault(n => n.MAKH == item.MAKH);
+                                    @kh.HOTEN
+                                }
+                            </td>
+                            <td>
+                                <a href="">
+                                    @{
+                                        var lt = db.LOTRINHDUHOCs.FirstOrDefault(n => n.MALT == item.MALT);
+                                        if (lt != null)
+                                        {
+                                            @lt.TENLT
+                                        }
+                                        else
+                                        {
+                                             // Hoặc bạn có thể đưa ra một giá trị mặc định khác ở đây.
+                                    }
+                                    }
+                                </a>
+                            </td>
+
+
+                            <td>@item.NGAYTAOHS.Value.ToString("dd/MM/yyyy")</td>
+                            <td>
+
+                                <p style="background: @(item.TRANGTHAIHS == "Chưa duyệt" ? "#dc3545" : "#28a745");margin:0; color: #fff; padding: 3px; border-radius: 33px; font-size: 13px;">@item.TRANGTHAIHS</p>
+                            </td>
+                            <td>
+                                <a href="@Url.Action("duyeths", "QuanLyHoSoKH", new { id = item.MAHS })"> Duyệt hồ sơ</a>
+
+                            </td>
+
+                            <td>
+                                <a href="@Url.Action("Index", "SendMail",new {id=item.MAKH })"><button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="gửi mail"><i class="fa-regular fa-paper-plane"></i></button></a>
+                                <a href="@Url.Action("editHoso", "QuanLyHoSoKH", new { id = item.MAHS })"><button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button></a>
+                                <a href="@Url.Action("xoahskh", "QuanLyHoSoKH", new { id = item.MAHS })"><button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button></a>
+                            </td>
+
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">Trước</span>
+                            <span class="sr-only">Sau</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(document).ready(function () {
+        function Contains(text_one, text_two) {
+            if (text_one.indexOf(text_two) != -1)
+                return true;
+        }
+        $("#Search").keyup(function () {
+            var searchText = $("#Search").val().toLowerCase();
+            $(".Search").each(function () {
+                if (!Contains($(this).text().toLowerCase(), searchText)) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+            })
+        })
+    })
+</script>
+

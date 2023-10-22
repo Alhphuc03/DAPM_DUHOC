@@ -1,0 +1,73 @@
+﻿@model quanlytrungtam.Models.LOTRINHDUHOC
+@{
+    ViewBag.Title = "themLotrinh";
+    Layout = "~/Views/Layouts/AdminLayout.cshtml";
+}
+
+<div id="content" class="container-fluid">
+    <div class="card">
+        <div class="card-header font-weight-bold">
+            Thêm Lộ Trình Du Học
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("themlotrinh", "QuanLyLoTrinh", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="name">Tên Lộ trình du học</label>
+                            @Html.EditorFor(model => model.TENLT, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TENLT, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Mô tả</label>
+                            @Html.EditorFor(model => model.MOTALT, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MOTALT, "", new { @class = "text-danger" })
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="name">Thời Gian Học</label>
+                            @Html.EditorFor(model => model.THOIGIANHOC, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.THOIGIANHOC, "", new { @class = "text-danger" })
+                        </div>
+
+
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+
+
+                            <div class="form-group">
+                                <label for="name">Chi Phí</label>
+                                @Html.EditorFor(model => model.CHIPHI, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.CHIPHI, "", new { @class = "text-danger" })
+                            </div>
+
+
+                        </div>
+                        <div class="form-group">
+                            <label for="">Chọn Trường Đại học</label>
+                            @Html.DropDownList("MATDH", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.MATDH, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name">Mô tả ngắn</label>
+                    @Html.EditorFor(model => model.MOTALT, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MOTALT, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label for="intro">Mô tả chi tiết lộ trình</label>
+                    @Html.TextAreaFor(model => model.MOTACHITIET, htmlAttributes: new { @class = "form-control" })
+
+                </div>
+               
+                <button type="submit" class="btn btn-primary">Thêm mới</button>
+            }
+        </div>
+     </div>
+</div>
+

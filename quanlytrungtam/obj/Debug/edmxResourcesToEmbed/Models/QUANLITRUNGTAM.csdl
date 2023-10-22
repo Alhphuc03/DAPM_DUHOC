@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QUANLITRUNGTAMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="QUANLITRUNGTAMEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CHITIETHOCPHIs" EntityType="QUANLITRUNGTAMModel.CHITIETHOCPHI" />
+    <EntitySet Name="CHUCVUs" EntityType="QUANLITRUNGTAMModel.CHUCVU" />
+    <EntitySet Name="DANGKYLOTRINHs" EntityType="QUANLITRUNGTAMModel.DANGKYLOTRINH" />
+    <EntitySet Name="HOCPHIs" EntityType="QUANLITRUNGTAMModel.HOCPHI" />
+    <EntitySet Name="HOSOKHACHHANGs" EntityType="QUANLITRUNGTAMModel.HOSOKHACHHANG" />
+    <EntitySet Name="KHACHHANGs" EntityType="QUANLITRUNGTAMModel.KHACHHANG" />
+    <EntitySet Name="LICHHENTUVANs" EntityType="QUANLITRUNGTAMModel.LICHHENTUVAN" />
+    <EntitySet Name="LOTRINHDUHOCs" EntityType="QUANLITRUNGTAMModel.LOTRINHDUHOC" />
+    <EntitySet Name="NHANVIENs" EntityType="QUANLITRUNGTAMModel.NHANVIEN" />
+    <EntitySet Name="PHANQUYENs" EntityType="QUANLITRUNGTAMModel.PHANQUYEN" />
+    <EntitySet Name="QUYENs" EntityType="QUANLITRUNGTAMModel.QUYEN" />
+    <EntitySet Name="sysdiagrams" EntityType="QUANLITRUNGTAMModel.sysdiagram" />
+    <EntitySet Name="THANNHANs" EntityType="QUANLITRUNGTAMModel.THANNHAN" />
+    <EntitySet Name="THONGTINVISAs" EntityType="QUANLITRUNGTAMModel.THONGTINVISA" />
+    <EntitySet Name="TRUONGDAIHOCs" EntityType="QUANLITRUNGTAMModel.TRUONGDAIHOC" />
+    <AssociationSet Name="FK_CHITIETHOCPHI_HOADON" Association="QUANLITRUNGTAMModel.FK_CHITIETHOCPHI_HOADON">
+      <End Role="HOCPHI" EntitySet="HOCPHIs" />
+      <End Role="CHITIETHOCPHI" EntitySet="CHITIETHOCPHIs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NHANVIEN_CHUCVU" Association="QUANLITRUNGTAMModel.FK_NHANVIEN_CHUCVU">
+      <End Role="CHUCVU" EntitySet="CHUCVUs" />
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHANQUYEN_CHUCVU" Association="QUANLITRUNGTAMModel.FK_PHANQUYEN_CHUCVU">
+      <End Role="CHUCVU" EntitySet="CHUCVUs" />
+      <End Role="PHANQUYEN" EntitySet="PHANQUYENs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DANGKYLOTRINH_KHACHHANG" Association="QUANLITRUNGTAMModel.FK_DANGKYLOTRINH_KHACHHANG">
+      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+      <End Role="DANGKYLOTRINH" EntitySet="DANGKYLOTRINHs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DANGKYLOTRINH_LOTRINH" Association="QUANLITRUNGTAMModel.FK_DANGKYLOTRINH_LOTRINH">
+      <End Role="LOTRINHDUHOC" EntitySet="LOTRINHDUHOCs" />
+      <End Role="DANGKYLOTRINH" EntitySet="DANGKYLOTRINHs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HOCPHI_KHACHHANG" Association="QUANLITRUNGTAMModel.FK_HOCPHI_KHACHHANG">
+      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+      <End Role="HOCPHI" EntitySet="HOCPHIs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HOSOKHACHHANG_KHACHHANG" Association="QUANLITRUNGTAMModel.FK_HOSOKHACHHANG_KHACHHANG">
+      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+      <End Role="HOSOKHACHHANG" EntitySet="HOSOKHACHHANGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HOSOKHACHHANG_LOTRINH" Association="QUANLITRUNGTAMModel.FK_HOSOKHACHHANG_LOTRINH">
+      <End Role="LOTRINHDUHOC" EntitySet="LOTRINHDUHOCs" />
+      <End Role="HOSOKHACHHANG" EntitySet="HOSOKHACHHANGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HOSOKHACHHANG_NHANVIEN" Association="QUANLITRUNGTAMModel.FK_HOSOKHACHHANG_NHANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="HOSOKHACHHANG" EntitySet="HOSOKHACHHANGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_THONGTINVISA_HOSOHOCSINH" Association="QUANLITRUNGTAMModel.FK_THONGTINVISA_HOSOHOCSINH">
+      <End Role="HOSOKHACHHANG" EntitySet="HOSOKHACHHANGs" />
+      <End Role="THONGTINVISA" EntitySet="THONGTINVISAs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KHACHHANG_THANNHAN" Association="QUANLITRUNGTAMModel.FK_KHACHHANG_THANNHAN">
+      <End Role="THANNHAN" EntitySet="THANNHANs" />
+      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LICHHENTUVAN_KHACHHANG" Association="QUANLITRUNGTAMModel.FK_LICHHENTUVAN_KHACHHANG">
+      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+      <End Role="LICHHENTUVAN" EntitySet="LICHHENTUVANs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LICHHENTUVAN_TUVANVIEN" Association="QUANLITRUNGTAMModel.FK_LICHHENTUVAN_TUVANVIEN">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="LICHHENTUVAN" EntitySet="LICHHENTUVANs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LOTRINHDUHOC_TRUONGDAIHOC" Association="QUANLITRUNGTAMModel.FK_LOTRINHDUHOC_TRUONGDAIHOC">
+      <End Role="TRUONGDAIHOC" EntitySet="TRUONGDAIHOCs" />
+      <End Role="LOTRINHDUHOC" EntitySet="LOTRINHDUHOCs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PHANQUYEN_QUYEN" Association="QUANLITRUNGTAMModel.FK_PHANQUYEN_QUYEN">
+      <End Role="QUYEN" EntitySet="QUYENs" />
+      <End Role="PHANQUYEN" EntitySet="PHANQUYENs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CHITIETHOCPHI">
+    <Key>
+      <PropertyRef Name="MACTHP" />
+    </Key>
+    <Property Name="MACTHP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MAHP" Type="Int32" />
+    <Property Name="TENDV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GIADV" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="HOCPHI" Relationship="QUANLITRUNGTAMModel.FK_CHITIETHOCPHI_HOADON" FromRole="CHITIETHOCPHI" ToRole="HOCPHI" />
+  </EntityType>
+  <EntityType Name="CHUCVU">
+    <Key>
+      <PropertyRef Name="MACV" />
+    </Key>
+    <Property Name="MACV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENCV" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="NHANVIENs" Relationship="QUANLITRUNGTAMModel.FK_NHANVIEN_CHUCVU" FromRole="CHUCVU" ToRole="NHANVIEN" />
+    <NavigationProperty Name="PHANQUYEN" Relationship="QUANLITRUNGTAMModel.FK_PHANQUYEN_CHUCVU" FromRole="CHUCVU" ToRole="PHANQUYEN" />
+  </EntityType>
+  <EntityType Name="DANGKYLOTRINH">
+    <Key>
+      <PropertyRef Name="MADK" />
+    </Key>
+    <Property Name="MADK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MAKH" Type="Int32" />
+    <Property Name="MALT" Type="Int32" />
+    <Property Name="NGAYDK" Type="DateTime" Precision="0" />
+    <Property Name="TRANGTHAI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="KHACHHANG" Relationship="QUANLITRUNGTAMModel.FK_DANGKYLOTRINH_KHACHHANG" FromRole="DANGKYLOTRINH" ToRole="KHACHHANG" />
+    <NavigationProperty Name="LOTRINHDUHOC" Relationship="QUANLITRUNGTAMModel.FK_DANGKYLOTRINH_LOTRINH" FromRole="DANGKYLOTRINH" ToRole="LOTRINHDUHOC" />
+  </EntityType>
+  <EntityType Name="HOCPHI">
+    <Key>
+      <PropertyRef Name="MAHP" />
+    </Key>
+    <Property Name="MAHP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MAKH" Type="Int32" />
+    <Property Name="NGAYHD" Type="DateTime" Precision="0" />
+    <Property Name="TONGTIEN" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="CHITIETHOCPHIs" Relationship="QUANLITRUNGTAMModel.FK_CHITIETHOCPHI_HOADON" FromRole="HOCPHI" ToRole="CHITIETHOCPHI" />
+    <NavigationProperty Name="KHACHHANG" Relationship="QUANLITRUNGTAMModel.FK_HOCPHI_KHACHHANG" FromRole="HOCPHI" ToRole="KHACHHANG" />
+  </EntityType>
+  <EntityType Name="HOSOKHACHHANG">
+    <Key>
+      <PropertyRef Name="MAHS" />
+    </Key>
+    <Property Name="MAHS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MAKH" Type="Int32" />
+    <Property Name="MANV" Type="Int32" />
+    <Property Name="MALT" Type="Int32" />
+    <Property Name="NGAYTAOHS" Type="DateTime" Precision="0" />
+    <Property Name="TRANGTHAIHS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GHICHU" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="KHACHHANG" Relationship="QUANLITRUNGTAMModel.FK_HOSOKHACHHANG_KHACHHANG" FromRole="HOSOKHACHHANG" ToRole="KHACHHANG" />
+    <NavigationProperty Name="LOTRINHDUHOC" Relationship="QUANLITRUNGTAMModel.FK_HOSOKHACHHANG_LOTRINH" FromRole="HOSOKHACHHANG" ToRole="LOTRINHDUHOC" />
+    <NavigationProperty Name="NHANVIEN" Relationship="QUANLITRUNGTAMModel.FK_HOSOKHACHHANG_NHANVIEN" FromRole="HOSOKHACHHANG" ToRole="NHANVIEN" />
+    <NavigationProperty Name="THONGTINVISAs" Relationship="QUANLITRUNGTAMModel.FK_THONGTINVISA_HOSOHOCSINH" FromRole="HOSOKHACHHANG" ToRole="THONGTINVISA" />
+  </EntityType>
+  <EntityType Name="KHACHHANG">
+    <Key>
+      <PropertyRef Name="MAKH" />
+    </Key>
+    <Property Name="MAKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HOTEN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NGAYSINH" Type="DateTime" Precision="0" />
+    <Property Name="GIOITINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DIACHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TAIKHOAN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MATKHAU" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MATN" Type="Int32" />
+    <NavigationProperty Name="DANGKYLOTRINHs" Relationship="QUANLITRUNGTAMModel.FK_DANGKYLOTRINH_KHACHHANG" FromRole="KHACHHANG" ToRole="DANGKYLOTRINH" />
+    <NavigationProperty Name="HOCPHIs" Relationship="QUANLITRUNGTAMModel.FK_HOCPHI_KHACHHANG" FromRole="KHACHHANG" ToRole="HOCPHI" />
+    <NavigationProperty Name="HOSOKHACHHANGs" Relationship="QUANLITRUNGTAMModel.FK_HOSOKHACHHANG_KHACHHANG" FromRole="KHACHHANG" ToRole="HOSOKHACHHANG" />
+    <NavigationProperty Name="THANNHAN" Relationship="QUANLITRUNGTAMModel.FK_KHACHHANG_THANNHAN" FromRole="KHACHHANG" ToRole="THANNHAN" />
+    <NavigationProperty Name="LICHHENTUVANs" Relationship="QUANLITRUNGTAMModel.FK_LICHHENTUVAN_KHACHHANG" FromRole="KHACHHANG" ToRole="LICHHENTUVAN" />
+  </EntityType>
+  <EntityType Name="LICHHENTUVAN">
+    <Key>
+      <PropertyRef Name="MALH" />
+    </Key>
+    <Property Name="MALH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MAHS" Type="Int32" />
+    <Property Name="MATVV" Type="Int32" />
+    <Property Name="NGAY" Type="DateTime" Precision="0" />
+    <Property Name="GIO" Type="Time" Precision="7" />
+    <Property Name="GHICHU" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="KHACHHANG" Relationship="QUANLITRUNGTAMModel.FK_LICHHENTUVAN_KHACHHANG" FromRole="LICHHENTUVAN" ToRole="KHACHHANG" />
+    <NavigationProperty Name="NHANVIEN" Relationship="QUANLITRUNGTAMModel.FK_LICHHENTUVAN_TUVANVIEN" FromRole="LICHHENTUVAN" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="LOTRINHDUHOC">
+    <Key>
+      <PropertyRef Name="MALT" />
+    </Key>
+    <Property Name="MALT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENLT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MOTALT" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="THOIGIANHOC" Type="Int32" />
+    <Property Name="CHIPHI" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="MATDH" Type="Int32" />
+    <NavigationProperty Name="DANGKYLOTRINHs" Relationship="QUANLITRUNGTAMModel.FK_DANGKYLOTRINH_LOTRINH" FromRole="LOTRINHDUHOC" ToRole="DANGKYLOTRINH" />
+    <NavigationProperty Name="HOSOKHACHHANGs" Relationship="QUANLITRUNGTAMModel.FK_HOSOKHACHHANG_LOTRINH" FromRole="LOTRINHDUHOC" ToRole="HOSOKHACHHANG" />
+    <NavigationProperty Name="TRUONGDAIHOC" Relationship="QUANLITRUNGTAMModel.FK_LOTRINHDUHOC_TRUONGDAIHOC" FromRole="LOTRINHDUHOC" ToRole="TRUONGDAIHOC" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MANV" />
+    </Key>
+    <Property Name="MANV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HOTEN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NGAYSINH" Type="DateTime" Precision="0" />
+    <Property Name="GIOITINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DIACHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TAIKHOAN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MATKHAU" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MACV" Type="Int32" />
+    <NavigationProperty Name="CHUCVU" Relationship="QUANLITRUNGTAMModel.FK_NHANVIEN_CHUCVU" FromRole="NHANVIEN" ToRole="CHUCVU" />
+    <NavigationProperty Name="HOSOKHACHHANGs" Relationship="QUANLITRUNGTAMModel.FK_HOSOKHACHHANG_NHANVIEN" FromRole="NHANVIEN" ToRole="HOSOKHACHHANG" />
+    <NavigationProperty Name="LICHHENTUVANs" Relationship="QUANLITRUNGTAMModel.FK_LICHHENTUVAN_TUVANVIEN" FromRole="NHANVIEN" ToRole="LICHHENTUVAN" />
+  </EntityType>
+  <EntityType Name="PHANQUYEN">
+    <Key>
+      <PropertyRef Name="MACV" />
+    </Key>
+    <Property Name="MACV" Type="Int32" Nullable="false" />
+    <Property Name="MAQUYEN" Type="Int32" Nullable="false" />
+    <Property Name="GHICHU" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CHUCVU" Relationship="QUANLITRUNGTAMModel.FK_PHANQUYEN_CHUCVU" FromRole="PHANQUYEN" ToRole="CHUCVU" />
+    <NavigationProperty Name="QUYEN" Relationship="QUANLITRUNGTAMModel.FK_PHANQUYEN_QUYEN" FromRole="PHANQUYEN" ToRole="QUYEN" />
+  </EntityType>
+  <EntityType Name="QUYEN">
+    <Key>
+      <PropertyRef Name="MAQUYEN" />
+    </Key>
+    <Property Name="MAQUYEN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TENQUYEN" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PHANQUYENs" Relationship="QUANLITRUNGTAMModel.FK_PHANQUYEN_QUYEN" FromRole="QUYEN" ToRole="PHANQUYEN" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="THANNHAN">
+    <Key>
+      <PropertyRef Name="MATN" />
+    </Key>
+    <Property Name="MATN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HOTEN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NGAYSINH" Type="DateTime" Precision="0" />
+    <Property Name="GIOITINH" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DIACHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="KHACHHANGs" Relationship="QUANLITRUNGTAMModel.FK_KHACHHANG_THANNHAN" FromRole="THANNHAN" ToRole="KHACHHANG" />
+  </EntityType>
+  <EntityType Name="THONGTINVISA">
+    <Key>
+      <PropertyRef Name="MAVISA" />
+    </Key>
+    <Property Name="MAVISA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MAHS" Type="Int32" />
+    <Property Name="LOAIVISA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TRANGTHAIVISA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GHICHU" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HOSOKHACHHANG" Relationship="QUANLITRUNGTAMModel.FK_THONGTINVISA_HOSOHOCSINH" FromRole="THONGTINVISA" ToRole="HOSOKHACHHANG" />
+  </EntityType>
+  <EntityType Name="TRUONGDAIHOC">
+    <Key>
+      <PropertyRef Name="MATDH" />
+    </Key>
+    <Property Name="MATDH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MATRUONG" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TENTDH" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DIACHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TRANG_WEB" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LOTRINHDUHOCs" Relationship="QUANLITRUNGTAMModel.FK_LOTRINHDUHOC_TRUONGDAIHOC" FromRole="TRUONGDAIHOC" ToRole="LOTRINHDUHOC" />
+  </EntityType>
+  <Association Name="FK_CHITIETHOCPHI_HOADON">
+    <End Type="QUANLITRUNGTAMModel.HOCPHI" Role="HOCPHI" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="QUANLITRUNGTAMModel.CHITIETHOCPHI" Role="CHITIETHOCPHI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOCPHI">
+        <PropertyRef Name="MAHP" />
+      </Principal>
+      <Dependent Role="CHITIETHOCPHI">
+        <PropertyRef Name="MAHP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NHANVIEN_CHUCVU">
+    <End Type="QUANLITRUNGTAMModel.CHUCVU" Role="CHUCVU" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="QUANLITRUNGTAMModel.NHANVIEN" Role="NHANVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUCVU">
+        <PropertyRef Name="MACV" />
+      </Principal>
+      <Dependent Role="NHANVIEN">
+        <PropertyRef Name="MACV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHANQUYEN_CHUCVU">
+    <End Type="QUANLITRUNGTAMModel.CHUCVU" Role="CHUCVU" Multiplicity="1" />
+    <End Type="QUANLITRUNGTAMModel.PHANQUYEN" Role="PHANQUYEN" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="CHUCVU">
+        <PropertyRef Name="MACV" />
+      </Principal>
+      <Dependent Role="PHANQUYEN">
+        <PropertyRef Name="MACV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DANGKYLOTRINH_KHACHHANG">
+    <End Type="QUANLITRUNGTAMModel.KHACHHANG" Role="KHACHHANG" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="QUANLITRUNGTAMModel.DANGKYLOTRINH" Role="DANGKYLOTRINH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MAKH" />
+      </Principal>
+      <Dependent Role="DANGKYLOTRINH">
+        <PropertyRef Name="MAKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DANGKYLOTRINH_LOTRINH">
+    <End Type="QUANLITRUNGTAMModel.LOTRINHDUHOC" Role="LOTRINHDUHOC" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="QUANLITRUNGTAMModel.DANGKYLOTRINH" Role="DANGKYLOTRINH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOTRINHDUHOC">
+        <PropertyRef Name="MALT" />
+      </Principal>
+      <Dependent Role="DANGKYLOTRINH">
+        <PropertyRef Name="MALT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HOCPHI_KHACHHANG">
+    <End Type="QUANLITRUNGTAMModel.KHACHHANG" Role="KHACHHANG" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="QUANLITRUNGTAMModel.HOCPHI" Role="HOCPHI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MAKH" />
+      </Principal>
+      <Dependent Role="HOCPHI">
+        <PropertyRef Name="MAKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HOSOKHACHHANG_KHACHHANG">
+    <End Type="QUANLITRUNGTAMModel.KHACHHANG" Role="KHACHHANG" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="QUANLITRUNGTAMModel.HOSOKHACHHANG" Role="HOSOKHACHHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MAKH" />
+      </Principal>
+      <Dependent Role="HOSOKHACHHANG">
+        <PropertyRef Name="MAKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HOSOKHACHHANG_LOTRINH">
+    <End Type="QUANLITRUNGTAMModel.LOTRINHDUHOC" Role="LOTRINHDUHOC" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="QUANLITRUNGTAMModel.HOSOKHACHHANG" Role="HOSOKHACHHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOTRINHDUHOC">
+        <PropertyRef Name="MALT" />
+      </Principal>
+      <Dependent Role="HOSOKHACHHANG">
+        <PropertyRef Name="MALT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HOSOKHACHHANG_NHANVIEN">
+    <End Type="QUANLITRUNGTAMModel.NHANVIEN" Role="NHANVIEN" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="QUANLITRUNGTAMModel.HOSOKHACHHANG" Role="HOSOKHACHHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANV" />
+      </Principal>
+      <Dependent Role="HOSOKHACHHANG">
+        <PropertyRef Name="MANV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_THONGTINVISA_HOSOHOCSINH">
+    <End Type="QUANLITRUNGTAMModel.HOSOKHACHHANG" Role="HOSOKHACHHANG" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="QUANLITRUNGTAMModel.THONGTINVISA" Role="THONGTINVISA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOSOKHACHHANG">
+        <PropertyRef Name="MAHS" />
+      </Principal>
+      <Dependent Role="THONGTINVISA">
+        <PropertyRef Name="MAHS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KHACHHANG_THANNHAN">
+    <End Type="QUANLITRUNGTAMModel.THANNHAN" Role="THANNHAN" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="QUANLITRUNGTAMModel.KHACHHANG" Role="KHACHHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THANNHAN">
+        <PropertyRef Name="MATN" />
+      </Principal>
+      <Dependent Role="KHACHHANG">
+        <PropertyRef Name="MATN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LICHHENTUVAN_KHACHHANG">
+    <End Type="QUANLITRUNGTAMModel.KHACHHANG" Role="KHACHHANG" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="QUANLITRUNGTAMModel.LICHHENTUVAN" Role="LICHHENTUVAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="MAKH" />
+      </Principal>
+      <Dependent Role="LICHHENTUVAN">
+        <PropertyRef Name="MAHS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LICHHENTUVAN_TUVANVIEN">
+    <End Type="QUANLITRUNGTAMModel.NHANVIEN" Role="NHANVIEN" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="QUANLITRUNGTAMModel.LICHHENTUVAN" Role="LICHHENTUVAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANV" />
+      </Principal>
+      <Dependent Role="LICHHENTUVAN">
+        <PropertyRef Name="MATVV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LOTRINHDUHOC_TRUONGDAIHOC">
+    <End Type="QUANLITRUNGTAMModel.TRUONGDAIHOC" Role="TRUONGDAIHOC" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="QUANLITRUNGTAMModel.LOTRINHDUHOC" Role="LOTRINHDUHOC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRUONGDAIHOC">
+        <PropertyRef Name="MATDH" />
+      </Principal>
+      <Dependent Role="LOTRINHDUHOC">
+        <PropertyRef Name="MATDH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PHANQUYEN_QUYEN">
+    <End Type="QUANLITRUNGTAMModel.QUYEN" Role="QUYEN" Multiplicity="1" />
+    <End Type="QUANLITRUNGTAMModel.PHANQUYEN" Role="PHANQUYEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QUYEN">
+        <PropertyRef Name="MAQUYEN" />
+      </Principal>
+      <Dependent Role="PHANQUYEN">
+        <PropertyRef Name="MAQUYEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

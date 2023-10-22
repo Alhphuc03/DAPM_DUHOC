@@ -1,0 +1,73 @@
+﻿@model quanlytrungtam.Models.HOCBONG
+
+@{
+    ViewBag.Title = "editHocbong";
+    Layout = "~/Views/Layouts/AdminLayout.cshtml";
+}
+
+<div id="content" class="container-fluid">
+    <div class="card">
+        <div class="card-header font-weight-bold">
+            Chỉnh sửa thông tin Học Bổng
+        </div>
+
+
+
+        <div class="card-body">
+            @using (Html.BeginForm("editHocbong", "QuanLyHocBong", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.Hidden("MAHB", Model.MAHB)
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="content">Tên Học Bổng</label>
+                            @*<input class="form-control" type="number" name="name" max="40" id="name">*@
+                            @Html.EditorFor(model => model.TENHB, new { htmlAttributes = new { @class = "form-control", @max = 40 } })
+                            @Html.ValidationMessageFor(model => model.TENHB, "", new { @class = "text-danger" })
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="content">Mô tả ngắn</label>
+                            @*<input class="form-control" type="number" name="name" max="40" id="name">*@
+                            @Html.EditorFor(model => model.MOTANGAN, new { htmlAttributes = new { @class = "form-control", @max = 40 } })
+                            @Html.ValidationMessageFor(model => model.MOTANGAN, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6">
+
+                        <div class="form-group">
+                            <label for="content">Số Tiền của Học Bổng</label>
+                            @*<input class="form-control" type="number" name="name" max="40" id="name">*@
+                            @Html.EditorFor(model => model.SOTIEN, new { htmlAttributes = new { @class = "form-control", } })
+                            @Html.ValidationMessageFor(model => model.SOTIEN, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Thuộc Nước</label>
+
+                            @Html.DropDownList("MANUOC", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.MANUOC, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="intro">Mô tả chi tiết Học Bổng</label>
+                    @Html.TextAreaFor(model => model.MOTACHITIET, htmlAttributes: new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <div id="uploadFile">
+                        <input type="file" name="ANH" id="upload-thumb" onchange="chooseFile(this)"> <br> <br>
+                        <img id="image" width="300px" height="300px" src="@Url.Content("~/Content/images/"+Model.ANH)">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">  Cập nhật</button>
+            }
+        </div>
+    </div>
+</div>
+
+

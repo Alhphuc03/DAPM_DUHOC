@@ -1,0 +1,115 @@
+﻿@model quanlytrungtam.Models.HOADON 
+@using quanlytrungtam.Models
+@{
+    ViewBag.Title = "duyethoadon";
+    Layout = "~/Views/Layouts/AdminLayout.cshtml";
+}
+
+@{ 
+    var db = new quanlytrungtam.Models.QUANLYTRUNGTAMDUHOCEntities();
+    var cthd = db.CHITIETHOADONs.Where(n => n.MAHD == Model.MAHD);
+}
+<div id="content" class="container-fluid">
+    <div class="card">
+        <div class="card-header font-weight-bold d-flex justify-content-between align-items-center">
+            <h5 class="m-0 ">Xử lý trình trạng hóa đơn</h5>
+            <div class="form-search form-inline">
+                <form id="box" action="#">
+                    <input type="text" id="Search" class="form-control form-search" placeholder="Tìm kiếm">
+                    <input type="submit" name="btn-search" value="Tìm kiếm" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row justify-content-between align-items-center">
+
+            </div>
+
+
+            @if (ViewBag.SuccessMsg != null)
+            {
+                <div id="msgAlert" class="alert alert-success" role="alert">
+                    @ViewBag.SuccessMsg
+                </div>
+            }
+            @using (Html.BeginForm("duyethoadon", "QuanLyThuChi", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+            {
+                @Html.Hidden("MAHD", Model.MAHD)
+                <table class="table table-bordered table-checkall text-center">
+                    <tr>
+                        <td colspan="4">
+                            <table class="table table-checkall text-center" style="width:100%">
+                                <tr>
+                                    <td>Mã Hóa Đơn <b style="color:red;">@Model.MAHD</b></td>
+                                    <td>Mã khách hàng : <b style="color:red;">@Model.MAKH</b></td>
+                                    <td>Tên khách hàng : <b style="color:red;">@Model.KHACHHANG.HOTEN</b></td>
+                                    <td>Ngày đặt : @Model.NGAYDAT.Value.ToString("dd/mm/yyyy")</td>
+                                    <td>
+                                        Tình trạng thanh toán :
+                                        <select class="form-control" name="DATHANHTOAN" id="">
+                                            <option value=0 @(Model.DATHANHTOAN == 0 ? "selected='selected'" : "")>Chưa thanh toán</option>
+                                            <option value=1 @(Model.DATHANHTOAN == 1 ? "selected='selected'" : "")>Đã thanh toán</option>
+                                        </select>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>Lộ trình</b></td>
+                        <td><b>Mô tả</b></td>
+                      
+                        <td><b>Thời gian học</b></td>
+                        <td><b>Học Phí</b></td>
+
+                    </tr>
+                    @foreach (var item in cthd)
+                    {
+                        <tr>
+                            <td>@item.TENLT</td>
+                            <td>@item.LOTRINHDUHOC.MOTALT</td>
+                           
+                            <td>@item.LOTRINHDUHOC.THOIGIANHOC</td>
+                            <td>@item.LOTRINHDUHOC.CHIPHI.Value.ToString("#,##")đ</td>
+
+                        </tr>
+
+                    }
+                   
+                </table>
+                <table class="table table-bordered table-checkall text-center align-center">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Tên Trường đại học</th>
+                            <th>Mô tả</th>
+                            <th>Địa chỉ</th>
+                            <th>Trang web</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in cthd)
+                        {
+                            <tr>
+                                <td>
+                                    <img width="90px" height="90px" src="@Url.Content("~/Content/images/"+item.LOTRINHDUHOC.TRUONGDAIHOC.ANH)">
+                                </td>
+                                <td>@item.LOTRINHDUHOC.TRUONGDAIHOC.TENTDH</td>
+                                <td>@item.LOTRINHDUHOC.TRUONGDAIHOC.MOTANGAN</td>
+                                <td>@item.LOTRINHDUHOC.TRUONGDAIHOC.DIACHI</td>
+                                <td><a href="@item.LOTRINHDUHOC.TRUONGDAIHOC.TRANG_WEB">@item.LOTRINHDUHOC.TRUONGDAIHOC.TRANG_WEB</a></td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+                <div align="right">Tổng tiền : @cthd.FirstOrDefault().LOTRINHDUHOC.CHIPHI.Value.ToString("#,##")đ</div>
+
+                <input type="submit" class="btn btn-success" value="Lưu trạng thái thanh toán" id="btn" />
+            }
+
+        </div>
+    </div>
+</div>
+

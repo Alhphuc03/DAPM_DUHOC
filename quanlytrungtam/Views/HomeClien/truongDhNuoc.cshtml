@@ -1,0 +1,56 @@
+﻿@model IEnumerable<quanlytrungtam.Models.TRUONGDAIHOC>
+
+@{
+    ViewBag.Title = "truongDhNuoc";
+    Layout = "~/Views/Layouts/HomeLayout.cshtml";
+}
+@{ 
+    var db = new quanlytrungtam.Models.QUANLYTRUNGTAMDUHOCEntities();
+    var nuoc = db.NUOCs.FirstOrDefault(n => n.MANUOC == 2);
+}
+<link rel="stylesheet" href="~/Content/css/truonghoc.css">
+
+<section class="pt-5" id="truonghoc">
+    <div class="container p-5">
+        <h1 class="ten">Danh sách tất cả các trường học </h1>
+        <p class="noidung">
+            Có rất nhiều các lựa chọn du học, vậy bạn nên bắt đầu từ đâu? Hãy nói cho chúng tôi biết bạn muốn du học ở đâu và bắt đầu tìm kiếm theo các trường học phổ biến, nhận xét của sinh viên hay cơ hội học bổng. Đơn giản đúng không!
+        </p>
+        <div class="box-lon">
+            @foreach (var item in Model)
+            {
+                <div class="box-con ">
+                    <div class="row">
+
+
+                        <div class="col-lg-3">
+
+                            <div class="anh">
+                                <img width="100%" src="~/Content/images/@item.ANH" alt="">
+                            </div>
+
+                        </div>
+                        <div class="col-lg-8">
+                            <h2 class="tieude">
+                                <a href="@Url.Action("deltailDH", "HomeClien", new { id = item.MATDH })">@item.TENTDH</a>
+                            </h2>
+                            <div class="diachi">
+                                @item.DIACHI
+                            </div>
+                            <p class="motangan">
+                                @item.MOTANGAN
+                            </p>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+
+

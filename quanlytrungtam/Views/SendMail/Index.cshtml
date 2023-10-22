@@ -1,0 +1,92 @@
+﻿@model quanlytrungtam.Models.KHACHHANG
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layouts/AdminLayout.cshtml";
+}
+
+
+<form method="post">
+    <div id="content" class="container-fluid">
+        <div class="card">
+            <div class="card-header font-weight-bold d-flex justify-content-between align-items-center">
+                <h5 class="m-0 ">Gửi Mail</h5>
+                <div class="form-search form-inline">
+                  
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="form-action form-inline py-3">
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-4 col-md-2">
+                        <label class="active form-check">
+                           Tiêu đề
+                        </label>
+                    </div>
+                    <div class="col-8 col-md-10">
+                        <input name="EmailSubject"
+                               type="text"
+                               required
+                               class="form-control form-check col-12 col-md-6 mb-2" />
+                    </div>
+
+
+                    <input type="hidden"
+                           value="@Model.Email"
+                           name="ReceiverEmailAddress"
+                           class="form-control form-check col-12 col-md-6 mb-2" />
+
+                    <div class="col-4 col-md-2">
+                        <label class="active form-check">
+                            Nội dung
+                        </label>
+                    </div>
+                    <div class="col-8 col-md-10">
+
+                        <input type="text"
+                               required
+                               name="EmailBody"
+                               class="form-control form-check col-12 col-md-6 mb-2" />
+                        @*                        <textarea name="EmailBody" rows="7" class="form-control form-check col-12 col-md-6 mb-2"></textarea>
+                        *@
+                    </div>
+                    <div class="offset-4 offset-md-6 mt-5">
+                        <input type="submit" value="Send Email" class="btn btn-outline-info" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    $(function() {
+
+        var message = "@ViewBag.Message";
+
+        if(message === "false") {
+            Swal.fire({
+                position: 'top',
+                icon: 'error',
+                title: 'Email Sending Failed!',
+                showConfirmButton: true
+            });
+        }
+
+        if (message === "true") {
+
+            Swal.fire({
+                position: 'top',
+                title: 'Email Sent Successfully!',
+                icon: 'success',
+                showConfirmButton: true
+            });
+        }
+    });
+
+</script>
+

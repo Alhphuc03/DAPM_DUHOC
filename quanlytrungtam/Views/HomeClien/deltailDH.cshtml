@@ -1,0 +1,76 @@
+﻿@model quanlytrungtam.Models.TRUONGDAIHOC
+@{
+    ViewBag.Title = "deltailDH";
+    Layout = "~/Views/Layouts/HomeLayout.cshtml";
+}
+<link rel="stylesheet" href="~/Content/css/blog1.css">
+
+<section class="pt-5">
+    <div class="blog pt-5">
+        <div class="left">
+            
+           <h1>@Model.TENTDH</h1>
+           <p> @Html.Raw(@Model.MOTACHITIET)</p>
+
+           
+        </div>
+        <div class="right">
+            <div class="rightcha">
+                <div class="logo">
+                    <P class="dvtuvan">CÁC DỊCH VỤ TƯ VẤN TẠI LUAGACADEMY</P>
+                    <img src="~/Content/images/vietdinh-720-400.jpg" alt="LOGO">
+                    <div class="logoco">
+                        <div class="anh2">
+                            <img src="https://vietdinh.vn/wp-content/uploads/2021/03/uc.png" alt="">
+                        </div>
+                        <div class="content-right">
+                            <div>Tư vấn du học Úc</div>
+                            <a class="a-right" href="">Chinh phục "thiên đường du học"</a>
+                        </div>
+                    </div>
+                    <div class="logoco">
+                        <div class="anh2">
+                            <img src="https://vietdinh.vn/wp-content/uploads/2021/03/canada.png
+                                 " alt="">
+                        </div>
+                        <div class="content-right">
+                            <div>Tư vấn du học Canada</div>
+                            <a class="a-right" href="">Quốc gia lý tưởng để học tập, làm việc và định cư</a>
+                        </div>
+                    </div>
+                    <div class="logoco">
+                        <div class="anh2">
+                            <img src="https://vietdinh.vn/wp-content/uploads/2021/03/my.png" alt="">
+                        </div>
+                        <div class="content-right">
+                            <div>Tư vấn du học Mỹ</div>
+                            <a class="a-right" href="">Chinh phục ước mơ du học Mỹ</a>
+                        </div>
+                    </div>
+                    <div class="logoco">
+                        <div class="anh2">
+                            <img src="https://vietdinh.vn/wp-content/uploads/2021/03/anh.png" alt="">
+                        </div>
+                        <div class="content-right">
+                            <div>Tư vấn du học Anh</div>
+                            <a class="a-right" href="">Khám phá "cái nôi" tiếng anh của thế giới</a>
+                        </div>
+                    </div>
+                    @*<div class="logoco">
+                        <div class="anh2">
+                            <img src="https://vietdinh.vn/wp-content/uploads/2021/03/new-zealand.png" alt="">
+                        </div>
+                        <div class="content-right">
+                            <div>Tư vấn du học New Zealand</div>
+                            <a class="a-right" href="">Điểm đến du học được yêu thích nhất trên thế giới</a>
+                        </div>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+    
+

@@ -1,0 +1,150 @@
+﻿@model IEnumerable<quanlytrungtam.Models.HOADON>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layouts/AdminLayout.cshtml";
+}
+
+@{ 
+    var db = new quanlytrungtam.Models.QUANLYTRUNGTAMDUHOCEntities();
+    var ctt = db.HOADONs.Where(n => n.DATHANHTOAN == 0).Count();
+    var dtt = db.HOADONs.Where(n => n.DATHANHTOAN == 1).Count();
+    var cthd = db.CHITIETHOADONs.Select(n => n.DONGIA);
+    var tong = cthd.Sum();
+}
+
+@section Scripts{
+    <script>
+        setTimeout(function () {
+            $('#msgAlert').fadeOut('slow');
+        }, 2000);
+    </script>
+}
+
+<p>@ViewBag.Message</p>
+<div id="content" class="container-fluid">
+    <div class="card">
+        <div class="card-header font-weight-bold d-flex justify-content-between align-items-center">
+            <h5 class="m-0 ">Danh sách các đơn thanh toán</h5>
+            <div class="form-search form-inline">
+                <form id="box" action="#">
+                    <input type="text" id="Search" class="form-control form-search" placeholder="Tìm kiếm">
+                    <input type="submit" name="btn-search" value="Tìm kiếm" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="analytic">
+                <a href="@Url.Action("Index","QuanLyThuChi",new {id=0})" class="text-primary">Chưa Thanh Toán <span class="text-muted">(@ctt)</span></a>
+                <a href="@Url.Action("Index","QuanLyThuChi",new {id=1})" class="text-primary">Đã Thanh Toán<span class="text-muted">(@dtt)</span></a>
+                <a href="" class="text-primary">Đã Thanh Toán<span class="text-muted">@tong</span></a>
+            </div>
+            <div class="form-action form-inline py-3">
+               
+            </div>
+            @if (ViewBag.SuccessMsg != null)
+            {
+                <div id="msgAlert" class="alert alert-success" role="alert">
+                    @ViewBag.SuccessMsg
+                </div>
+            }
+            <table class="table table-striped table-checkall text-center">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <input name="checkall" type="checkbox">
+                        </th>
+                        <th scope="col">#</th>
+                        <th scope="col">MAHD</th>
+                        <th scope="col">Khách Hàng</th>
+                        <th scope="col">Ngày đặt</th>
+                        <th scope="col">Tình trạng thanh toán</th>
+                        <th scope="col">Duyệt hóa đơn</th>
+                        <th scope="col">Tác vụ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ var stt = 0;}
+                    @foreach (var item in Model)
+                    {
+                        stt++;
+                        <tr class="Search">
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td scope="row">@stt</td>
+                            <td>@item.MAHD</td>
+
+                            <td>
+                                <a href="">
+                                    @{
+                                        var kh = db.KHACHHANGs.SingleOrDefault(n => n.MAKH == item.MAKH);
+                                        @kh.HOTEN}
+                                </a>
+                            </td>
+                            <td>@item.NGAYDAT.Value.ToString("dd/mm/yyyy")</td>
+                            <td>
+                                <p style="background: @(item.DATHANHTOAN == 0 ? "#dc3545" : "#28a745");margin:0; color: #fff; padding: 3px; border-radius: 33px; font-size: 13px;">@(item.DATHANHTOAN == 0 ? "Chưa Thanh Toán" : "Đã thanh toán")</p>
+                            </td>
+                            <td><a href="@Url.Action("duyethoadon", "QuanLyThuChi",new {id=item.MAHD })">duyệt hóa đơn</a></td>
+                            <td>
+                                <a href="@Url.Action("Index", "SendMail",new {id=item.MAKH })"><button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="gửi mail"><i class="fa-regular fa-paper-plane"></i></button></a>
+                                <a href="@Url.Action("editTruong", "QuanLyTruongDH",new {id=item.MAHD })"><button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button></a>
+
+                                <a href="@Url.Action("xoaTruong", "QuanLyTruongDH",new {id=item.MAHD })"><button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button></a>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                        Open modal
+                    </button>
+
+                </tbody>
+            </table>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">Trước</span>
+                            <span class="sr-only">Sau</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(document).ready(function () {
+        function Contains(text_one, text_two) {
+            if (text_one.indexOf(text_two) != -1)
+                return true;
+        }
+        $("#Search").keyup(function () {
+            var searchText = $("#Search").val().toLowerCase();
+            $(".Search").each(function () {
+                if (!Contains($(this).text().toLowerCase(), searchText)) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+            })
+        })
+    })
+</script>
+
+

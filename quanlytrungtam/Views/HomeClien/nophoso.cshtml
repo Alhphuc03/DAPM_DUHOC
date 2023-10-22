@@ -1,0 +1,111 @@
+﻿@model quanlytrungtam.Models.KhachHangHoSo
+
+@{
+    ViewBag.Title = "nophoso";
+    Layout = "~/Views/Layouts/HomeLayout.cshtml";
+}
+@{ 
+    var db = new quanlytrungtam.Models.QUANLYTRUNGTAMDUHOCEntities();
+    var ltdh = db.LOTRINHDUHOCs.OrderBy(n => n.MALT);
+}
+<link rel="stylesheet" href="~/Content/css/inputfile.css">
+<section class="py-5">
+    <div class="container text-center pt-5">
+        <h3 class="title" style="font-size: 35px; font-weight: bold;text-align: center;">Nộp Hồ sơ Online</h3>
+        <p style="text-align: center;margin-bottom: 1.5em;font-size: 19px;">Các tư vấn viên của <strong> Việt Đỉnh</strong> sẽ chủ động giới thiệu học <br> bổng phù hợp từ <strong>30 - 100%</strong>  học phí cho các bạn đến <br> làm hồ sơ tại <strong> Việt Đỉnh</strong></p>
+        @using (Html.BeginForm("nophoso", "HomeClien", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+
+                <div class="col">
+
+                    <div class="p-2">
+
+                        <div class="input-group mb-3">
+
+                            @Html.TextBoxFor(m => m.KHACHHANG.HOTEN, new { @class = "form-control", @placeholder = "Họ và tên", @aria_label = "Sizing example input", @aria_describedby = "inputGroup-sizing-default" })
+                            @Html.ValidationMessageFor(model => model.KHACHHANG.HOTEN, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="input-group mb-3">
+
+                            @Html.TextBoxFor(m => m.KHACHHANG.SDT, new { @class = "form-control", @placeholder = "Số Điện Thoại", @aria_label = "Sizing example input", @aria_describedby = "inputGroup-sizing-default" })
+                            @Html.ValidationMessageFor(model => model.KHACHHANG.SDT, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="input-group mb-3">
+                            @Html.TextBoxFor(m => m.KHACHHANG.Email, new { @class = "form-control", @placeholder = "Email", @aria_label = "Sizing example input", @aria_describedby = "inputGroup-sizing-default" })
+                            @Html.ValidationMessageFor(model => model.KHACHHANG.Email, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="input-group mb-3">
+                            @Html.TextBoxFor(m => m.KHACHHANG.DIACHI, new { @class = "form-control", @placeholder = "Địa Chỉ", @aria_label = "Sizing example input", @aria_describedby = "inputGroup-sizing-default" })
+                            @Html.ValidationMessageFor(model => model.KHACHHANG.DIACHI, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="input-group mb-3">
+                            @Html.EditorFor(model => model.KHACHHANG.NGAYSINH, new { htmlAttributes = new { @class = "form-control",@placeholder = "Ngày Sinh", @aria_label = "Sizing example input", @aria_describedby = "inputGroup-sizing-default", Type = "date" } })
+                            @Html.ValidationMessageFor(model => model.KHACHHANG.NGAYSINH, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col">
+
+                    <div class="p-2">
+                        <div class="input-group mb-3">
+
+                            @Html.DropDownList("KHANHHANG.GIOITINH", new SelectList(new[] {
+                           new SelectListItem { Value = "nam", Text = "Nam" },
+                           new SelectListItem { Value = "nữ", Text = "Nữ" },
+
+                       }, "Value", "Text"), "--- Chọn giới tính ---", new { @class = "form-control" })
+                        </div>
+                        <div class="input-group mb-3">
+                           
+                               
+                                <select class="form-control" id="HOSOKHACHHANG.MALT" name="HOSOKHACHHANG.MALT">
+                                    <option>---Chọn chương trình du học---</option>
+                                    @foreach (var item in ltdh)
+                                    {
+                                        <option value="@item.MALT">@item.TENLT</option>
+                                    }
+
+                                </select>
+                            
+                        </div>
+                        <div class="input-group mb-3">
+                            @Html.TextBoxFor(m => m.HOSOKHACHHANG.GHICHU, new { @class = "form-control", @placeholder = "Ghi Chú", @aria_label = "Sizing example input", @aria_describedby = "inputGroup-sizing-default" })
+                            @Html.ValidationMessageFor(model => model.HOSOKHACHHANG.GHICHU, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="input-group mb-3">
+                            <div id="uploadFile">
+                                <input type="file" name="FILEHOSO" id="upload-thumb" onchange="chooseFile(this)"> <br> <br>
+                               
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+            <button type="submit" class="btn btn-primary btn-dathen mt-3">Nộp Hồ Sơ</button>
+
+        }
+    </div>
+</section>
+<script>
+    var fileInput = document.querySelector('.form-input-file');
+    var fileInputText = document.querySelector('.form-input--file-text');
+    fileInputTextContent = fileInputText.textContent;
+
+    fileInput.addEventListener('change', function (e) {
+        var value = e.target.value.length > 0 ? e.target.value : fileInputTextContent;
+
+        fileInputText.textContent = value.replace('C:\\fakepath\\', '');
+    });
+</script>
+
+

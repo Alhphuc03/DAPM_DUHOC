@@ -1,0 +1,102 @@
+﻿@model quanlytrungtam.Models.KHACHHANG
+
+@{
+    ViewBag.Title = "tinhtranghskh";
+    Layout = "~/Views/Layouts/HomeLayout.cshtml";
+    var db = new quanlytrungtam.Models.QUANLYTRUNGTAMDUHOCEntities();
+
+    var kh = db.KHACHHANGs.SingleOrDefault(n => n.MAKH == Model.MAKH);
+}
+
+<div class="container pt-5 pb-5 ">
+    @if (kh != null)
+    {
+        var hskh = db.HOSOKHACHHANGs.SingleOrDefault(n => n.MAKH == kh.MAKH);
+
+        var lotrinh = db.LOTRINHDUHOCs.SingleOrDefault(n => n.MALT == hskh.MALT);
+        var tdh = db.TRUONGDAIHOCs.SingleOrDefault(n => n.MANUOC == lotrinh.MATDH);
+        <h2 class="pt-5">Tình trạng Hồ sơ : <strong>@hskh.TRANGTHAIHS</strong></h2>
+        <p># Thông tin khách hàng</p>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Họ tên</th>
+                        <th>Giới tính</th>
+                        <th>Địa chỉ</th>
+                        <th>Sdt</th>
+                        <th>Ngày Sinh</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@kh.HOTEN</td>
+                        <td>@kh.GIOITINH</td>
+                        <td>
+                            @kh.DIACHI
+                        </td>
+                        <td>@kh.SDT</td>
+                        <td>@kh.NGAYSINH</td>
+                        <td>@kh.Email</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <p># Lộ trình đăng ký</p>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+
+                        <th>Lộ trình</th>
+                        <th>Mô tả Lộ trình</th>
+                        <th>Thời gian học</th>
+                        <th>Học Phí</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+
+                        <td>@hskh.LOTRINHDUHOC.TENLT</td>
+
+                        <td>@hskh.LOTRINHDUHOC.MOTALT</td>
+                        <td>@hskh.LOTRINHDUHOC.THOIGIANHOC năm</td>
+                        <td>@hskh.LOTRINHDUHOC.CHIPHI</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <table class="table table-bordered pt-3">
+                <thead>
+                    <tr>
+                        <th>Ảnh</th>
+                        <th>Tên Trường</th>
+                        <th>Địa Chỉ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <img width="90px" height="90px" src="@Url.Content("~/Content/images/" + hskh.LOTRINHDUHOC.TRUONGDAIHOC.ANH)">
+                        </td>
+                        <td>@hskh.LOTRINHDUHOC.TRUONGDAIHOC.TENTDH</td>
+                        <td>@hskh.LOTRINHDUHOC.TRUONGDAIHOC.DIACHI</td>
+                    </tr>
+
+                </tbody>
+            </table>
+                if(hskh.TRANGTHAIHS== "Đã duyệt")
+                {
+                    <div class="width:100%; text-end"> <a href="@Url.Action("thanhtoan", "HomeClien", new { id=kh.MAKH})"><button type="button" class="btn btn-success">Thanh Toán</button></a></div>
+                }
+        
+
+    }
+    else
+    {
+        <h2 class="pt-5">Bạn chưa nộp hồ sơ </h2>
+        <p>Nhấn <a href="@Url.Action("nophoso", "HomeClien")">tại đây</a> Nộp Hồ để nộp hồ sơ đăng ký lộ trình du học</p>
+    }
+</div>
+
+
+
